@@ -1,0 +1,11 @@
+section{
+    background-color: rgb(109, 35, 35);
+}
+.menu {
+    padding: 0;
+    margin-top: auto;
+    float: right;
+}
+button{
+    float: right;
+}
