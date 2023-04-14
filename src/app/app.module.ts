@@ -13,7 +13,11 @@ import { EducacionComponent } from './components/educacion/educacion.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { ContactosComponent } from './components/contactos/contactos.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
-
+import { LoginComponent } from './components/login/login.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import { InterceptorService } from './servicios/interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,13 +30,17 @@ import { PerfilComponent } from './components/perfil/perfil.component';
     ProyectosComponent,
     FooterComponent,
     ContactosComponent,
-    PerfilComponent
+    PerfilComponent,
+    LoginComponent,
+    PortfolioComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
