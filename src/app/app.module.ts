@@ -17,7 +17,8 @@ import { LoginComponent } from './components/login/login.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import { InterceptorService } from './servicios/interceptor.service';
+import { RegisterComponent } from './components/register/register.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import { InterceptorService } from './servicios/interceptor.service';
     ContactosComponent,
     PerfilComponent,
     LoginComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,7 @@ import { InterceptorService } from './servicios/interceptor.service';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

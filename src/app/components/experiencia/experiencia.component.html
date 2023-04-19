@@ -2,25 +2,26 @@
     <div class="container">
         <div class="block-content">
             <h3 class="block-title">Experiencia</h3>
-            <div>
-                
-                <div class="row">
-                    <div class="col-md-12">
-                        <div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <h4><span>Empresa</span>cargo</h4>
-                                        <h5> fecha de trabajo</h5>
-                                    </div>
-                                    <p>Descripcion</p>
+            <div class="row" ><!--*ngFor="let experiencia of experiencias"-->
+                <br><hr class="col-11">
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        experiencia.puesto</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">experiencia.inicio experiencia.fin</div>
+                                    <h4>experiencia.descripcion</h4>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="bi bi-calendar fa-2x text-gray-300"></i>
                                 </div>
                             </div>
-    
                         </div>
                     </div>
-                </div>
-            </div>
+                </div>      
+              </div>
         </div>
     </div>
     
