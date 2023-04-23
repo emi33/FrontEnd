@@ -1,1 +1,24 @@
-<p>verificarcorreo works!</p>
+<div class="container">
+    <div class="row">
+        <div class="displayTable">
+            <div class="displayTableCell">
+              <div class="authBlock">
+                <h3>Gracias por registrarse!!</h3>
+                <div class="formGroup" *ngIf="authService.userData as user">
+                  <p class="text-center">Te hemos enviado un email de confirmación a: <strong>{{user.email}}</strong>.</p>
+                  <p class="text-center">Por favor, revisa tu bandeja de entrada y haz click en el link de confirmación</p>
+                </div>
+                <div class="formGroup">
+                  <button type="button" class="btn btn-primary" (click)="authService.SendVerificationMail()">
+                    
+                    Reenviar email de confirmación
+                  </button>
+                </div>
+              </div>
+              <div class="redirectToLogin">
+                <span>Volver<span class="redirect" routerLink="/login"> Ingresar</span></span>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>
