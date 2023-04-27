@@ -4,6 +4,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat
 import { Router } from '@angular/router';
 import { User } from '../services/user';
 import * as auth from 'firebase/auth';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +15,8 @@ export class AuthService {
     public afs: AngularFirestore,
     public afAuth: AngularFireAuth,
     public router: Router,
-    public ngZone: NgZone
+    public ngZone: NgZone,
+    
   ) {/*guardar datos de usuario en localstorage cuando se ingresa; configura en nulo al cerrar sesion*/
     this.afAuth.authState.subscribe((user) => {
       if (user) {
@@ -27,6 +29,7 @@ export class AuthService {
       }
     });
   }
+
   SignIn(email: string, password: string){
     return this.afAuth
     .signInWithEmailAndPassword(email, password)
@@ -48,7 +51,10 @@ export class AuthService {
     .createUserWithEmailAndPassword(email, password)
     .then((result)=>{
       //llamada a metodo de verificacion cuando un usuario se registra
-      this.SendVerificationMail();
+      
+        this.SendVerificationMail();
+    
+      
       this.SetUserData(result.user);
     })
     .catch((error)=>{
@@ -77,10 +83,15 @@ export class AuthService {
     })
   }
 
-  //retorna un true cuando un usuario ingreso y su email fue verificado
+  //retorna un true cuando un usuario ingresa y su email fue verificado, SI EL USUARIO ES usuario@portfolioweb.com, retorna true sin importar el email verified
   get isLoggedIn(): boolean{
     const user = JSON.parse(localStorage.getItem('user')!);
-    return (user !== null && user.emailVerified !== false) ? true: false;
+    if (user.email=="usuario@portfolioweb.com"){
+      return true;
+    }else{
+      return (user !== null && user.emailVerified !== false) ? true: false;
+    }
+    
   }
 
 

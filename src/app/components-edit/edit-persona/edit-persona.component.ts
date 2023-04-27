@@ -3,21 +3,21 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Persona } from 'src/app/entities/persona';
 import { PersonaService } from 'src/app/services/persona.service';
 
-
 @Component({
-  selector: 'app-acerca-de',
-  templateUrl: './acerca-de.component.html',
-  styleUrls: ['./acerca-de.component.css']
+  selector: 'app-edit-persona',
+  templateUrl: './edit-persona.component.html',
+  styleUrls: ['./edit-persona.component.css']
 })
-export class AcercaDeComponent implements OnInit{
+export class EditPersonaComponent implements OnInit {
   @Input() viewMode = false;
-  @Input() id: number=1;
+
   @Input() currentPersona: Persona = {
+
     nombre: '',
     apellido: '',
     edad: 0
   };
-  
+
   constructor(
     private personaService: PersonaService,
     private route: ActivatedRoute,
@@ -25,12 +25,13 @@ export class AcercaDeComponent implements OnInit{
 
   ngOnInit(): void {
     if (!this.viewMode) {
-      this.getPersona(this.id);
+
+      this.getPersona(this.route.snapshot.params['id']);
     }
   }
 
-  getPersona(personaid: number): void {
-    this.personaService.getPersona(personaid)
+  getPersona(id: number): void {
+    this.personaService.getPersona(id)
       .subscribe({
         next: (data) => {
           this.currentPersona = data;
@@ -40,5 +41,19 @@ export class AcercaDeComponent implements OnInit{
       });
   }
 
-  
+  updatePersona(): void {
+    if (this.currentPersona.id != null) {
+      this.personaService.updatePersona(this.currentPersona.id, this.currentPersona)
+        .subscribe(
+          () => {
+            console.log('exito');
+            this.router.navigate(['']);
+
+          }, err => {
+            alert("Error al cargar datos");
+          }
+        );
+    }
+
+  }
 }

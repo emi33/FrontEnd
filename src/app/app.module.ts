@@ -15,12 +15,18 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { RegisterComponent } from './components/register/register.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { OlvidarPasswordComponent } from './components/olvidar-password/olvidar-password.component';
 import { VerificarcorreoComponent } from './components/verificarcorreo/verificarcorreo.component';
 import { AuthService } from './shared/services/auth.service';
+import { AddExperienciaComponent } from './components-add/add-experiencia/add-experiencia.component';
+import { HttpClientModule } from '@angular/common/http';
+import { EditPersonaComponent } from './components-edit/edit-persona/edit-persona.component';
+import { AddPersonaComponent } from './components-add/add-persona/add-persona.component';
+import { PersonasComponent } from './components/personas/personas.component'; 
+import { PersonaService } from './services/persona.service';
 
 @NgModule({
   declarations: [
@@ -39,15 +45,21 @@ import { AuthService } from './shared/services/auth.service';
     PortfolioComponent,
     RegisterComponent,
     OlvidarPasswordComponent,
-    VerificarcorreoComponent
+    VerificarcorreoComponent,
+    AddExperienciaComponent,
+    EditPersonaComponent,
+    AddPersonaComponent,
+    PersonasComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
-  providers: [AuthService],
+  providers: [AuthService, PersonaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

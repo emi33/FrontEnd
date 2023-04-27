@@ -1,0 +1,48 @@
+
+    <div *ngIf="currentPersona.id" class="edit-form">
+      <h4>Persona</h4>
+      <form>
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nombre"
+            [(ngModel)]="currentPersona.nombre"
+            name="nombre"
+          />
+        </div>
+        <div class="form-group">
+          <label for="apellido">Apellido</label>
+          <input
+            type="text"
+            class="form-control"
+            id="apellido"
+            [(ngModel)]="currentPersona.apellido"
+            name="apellido"
+          />
+        </div>
+  
+        <div class="form-group">
+            <label for="edad">Edad</label>
+            <input
+              type="number"
+              class="form-control"
+              id="edad"
+              [(ngModel)]="currentPersona.edad"
+              name="edad"
+            />
+          </div>
+          <button
+        type="submit"
+        class="btn btn-warning  mb-2"
+        (click)="updatePersona()"
+      >
+        Update
+      </button>
+      </form>
+
+      
+
+    </div>
+  

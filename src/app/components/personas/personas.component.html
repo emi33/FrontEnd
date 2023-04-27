@@ -1,0 +1,40 @@
+<div class="list row">
+    <div class="col-md-8">
+    </div>
+    <div class="col-md-6">
+      <h4>Personas List</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let personas of persona; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActivePersona(personas, i)"
+        >
+          {{ personas.nombre }}
+          {{ personas.apellido }}
+          {{ personas.edad }}
+        </li>
+      </ul>
+  
+    </div>
+  <div>
+  <div *ngIf="currentPersona.id">
+    <h4>Tutorial</h4>
+    <div>
+      <label><strong>Nombre</strong></label> {{ currentPersona.nombre }}
+    </div>
+    <div>
+      <label><strong>Apellido:</strong></label>
+      {{ currentPersona.apellido }}
+    </div>
+    <div>
+      <label><strong>Edad:</strong></label>
+      {{ currentPersona.edad}}
+    </div>
+    <a class="btn btn-warning" routerLink="/portfolio/{{currentPersona.id}}" >
+      Ir
+    </a>
+  </div>
+
+</div>
+  </div>

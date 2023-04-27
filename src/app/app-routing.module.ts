@@ -6,14 +6,21 @@ import { RegisterComponent } from './components/register/register.component';
 import { OlvidarPasswordComponent } from './components/olvidar-password/olvidar-password.component';
 import { VerificarcorreoComponent } from './components/verificarcorreo/verificarcorreo.component';
 import { AuthGuard } from './shared/guard/auth.guard';
+import { AddPersonaComponent } from './components-add/add-persona/add-persona.component';
+import { PersonasComponent } from './components/personas/personas.component';
+import { EditPersonaComponent } from './components-edit/edit-persona/edit-persona.component';
 
 const routes: Routes = [
-  {path: 'portfolio', component: PortfolioComponent, canActivate: [AuthGuard]},
+  {path: 'portfolio', component: PortfolioComponent },
+  {path: 'portfolio/:id', component: PortfolioComponent, canActivate: [AuthGuard] },
   {path:'login', component: LoginComponent},
-  {path: '', redirectTo:'login', pathMatch:'full'},
+  {path: '', redirectTo:'portfolio', pathMatch:'full'},
   {path:'register', component: RegisterComponent},
   {path:'olvidar-password', component: OlvidarPasswordComponent},
-  {path: 'verificarcorreo', component: VerificarcorreoComponent}
+  {path: 'verificarcorreo', component: VerificarcorreoComponent},
+  {path: 'personas', component: PersonasComponent},
+  {path: 'persona/:id', component: EditPersonaComponent, canActivate: [AuthGuard]},
+  {path: 'add?persona', component: AddPersonaComponent}
 ];
 
 @NgModule({

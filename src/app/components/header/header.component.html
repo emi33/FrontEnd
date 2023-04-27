@@ -1,23 +1,18 @@
 <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
         <a href="#" class="navbar-brand">Brand</a>
-        <button  *ngIf="!authService.isLoggedIn">INGRESAR</button>
+        <button *ngIf="!authService.isLoggedIn"><a routerLink="/login">Ingresar</a></button>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" *ngIf="authService.isLoggedIn">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
             <div class="navbar-nav">
-                <a href="#" class="nav-item nav-link active">Home</a>
-                <a href="#" class="nav-item nav-link">Profile</a>
+                <button><a routerLink="/personas">Perfiles</a></button>
+                <button><a routerLink="/add?persona">Crear Perfil</a></button>
                 <input type="button" class="btn btn-primary" value="Sign Out"
                 (click)="authService.SignOut()">
             </div>
-            <form class="d-flex">
-                <div class="input-group">                    
-                    <input type="text" class="form-control" placeholder="Search">
-                    <button type="button" class="btn btn-secondary"><i class="bi-search"></i></button>
-                </div>
-            </form>
+        
         </div>
     </div>
 </nav>
