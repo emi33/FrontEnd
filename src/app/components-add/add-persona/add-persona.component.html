@@ -34,6 +34,47 @@
               name="edad"
             />
           </div>
+
+          <div class="form-group">
+            <label for="acercade">Descripción</label>
+            <input
+              class="form-control"
+              id="acercade"
+              required
+              [(ngModel)]="persona.acercade"
+              name="acercade"
+            />
+          </div>
+          <div class="form-group">
+            <label for="ocupacion">Ocupación</label>
+            <input
+              class="form-control"
+              id="ocupacion"
+              required
+              [(ngModel)]="persona.ocupacion"
+              name="ocupacion"
+            />
+          </div>
+          <div class="form-group">
+            <label for="imagen">Foto de Perfil</label>
+            <input
+              class="form-control"
+              id="imagen"
+              required
+              [(ngModel)]="persona.imagen"
+              name="imagen"
+            />
+          </div>
+          <div class="form-group">
+            <label for="banner">Banner</label>
+            <input
+              class="form-control"
+              id="banner"
+              required
+              [(ngModel)]="persona.banner"
+              name="banner"
+            />
+          </div>
   
         <button (click)="savePersona()" class="btn btn-success">Submit</button>
       </div>

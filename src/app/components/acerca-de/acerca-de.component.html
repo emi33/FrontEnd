@@ -1,9 +1,11 @@
 <section id="acercade">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-sm-6 col-6" id="perfilfoto">
-                <img src="../../../assets/icono-gris-de-perfil-usuario-símbolo-empleado-avatar-web-y-diseño-ilustración-signo-aislado-en-fondo-blanco-191067342.jpg" alt="perfil">
+            
+            <div class="col-md-3 col-sm-6 col-6" id="perfilfoto" *ngIf="currentPersona.imagen">
+                <img  src="{{currentPersona.imagen}}" alt="perfil">
             </div>
+            
             <div class="col-md-3 col-sm-6 col-6">
                 <h2>{{ currentPersona.nombre }} {{ currentPersona.apellido }}</h2>
                 
@@ -12,6 +14,9 @@
                 
                 <h3>{{ currentPersona.edad }} Años</h3>
             </div>  
+            <h3>Sobre mí:</h3>
+            <div class="col-md-6 col-sm-12 col-12">{{currentPersona.acercade}}
+            </div>
             <a class="btn btn-warning" routerLink="/persona/{{ currentPersona.id }}" >
                 Edit
               </a>

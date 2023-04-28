@@ -9,9 +9,14 @@ import { PersonaService } from 'src/app/services/persona.service';
 })
 export class AddPersonaComponent implements OnInit{
   persona={
+    
     nombre: '',
     apellido: '',
-    edad: ''
+    edad: 0,
+    acercade:'',
+    ocupacion:'',
+    imagen:'',
+    banner:''
   };
 
   constructor(private personaService: PersonaService){}
@@ -26,7 +31,11 @@ export class AddPersonaComponent implements OnInit{
     const data = {
       nombre: this.persona.nombre,
       apellido: this.persona.apellido,
-      edad: this.persona.edad
+      edad: this.persona.edad,
+      acercade: this.persona.acercade,
+      ocupacion: this.persona.ocupacion,
+      imagen: this.persona.imagen,
+      banner: this.persona.banner
     };
     this.personaService.createPersona(data)
     .subscribe(
@@ -41,9 +50,14 @@ export class AddPersonaComponent implements OnInit{
   newPersona(): void {
     this.submitted=false;
     this.persona = {
-      nombre: '',
-      apellido: '',
-      edad: ''
+      
+    nombre: '',
+    apellido: '',
+    edad: 0,
+    acercade:'',
+    ocupacion:'',
+    imagen:'',
+    banner:''
     }
   }
 }

@@ -8,13 +8,17 @@ import { PersonaService } from 'src/app/services/persona.service';
   templateUrl: './personas.component.html',
   styleUrls: ['./personas.component.css']
 })
-export class PersonasComponent implements OnInit{
+export class PersonasComponent implements OnInit {
   persona?: Persona[];
   currentPersona: Persona = {
-  
+
     nombre: '',
     apellido: '',
-    edad: 0
+    edad: 0,
+    acercade:'',
+    ocupacion: '',
+    imagen: '',
+    banner: ''
   };
   currentIndex = -1;
   title = '';
@@ -37,10 +41,13 @@ export class PersonasComponent implements OnInit{
   refreshList(): void {
     this.retrievePersona();
     this.currentPersona = {
-      
       nombre: '',
       apellido: '',
-      edad: 0
+      edad: 0,
+      acercade:'',
+      ocupacion: '',
+      imagen: '',
+      banner: ''
     };
     this.currentIndex = -1;
   }
@@ -49,6 +56,4 @@ export class PersonasComponent implements OnInit{
     this.currentPersona = persona;
     this.currentIndex = index;
   }
-
-  
 }

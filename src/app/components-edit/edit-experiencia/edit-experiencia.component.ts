@@ -42,7 +42,7 @@ export class EditExperienciaComponent implements OnInit{
         .subscribe(
           () => {
             console.log('exito');
-            this.router.navigate(['']);
+            this.router.navigate(['/portfolio/'+this.currentExperiencia.personaid]);
 
           }, err => {
             alert("Error al cargar datos");

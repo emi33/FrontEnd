@@ -7,8 +7,11 @@
   img{
     height: 100px;
     width: 100px;
-    position: absolute;
+    
+    object-fit: cover; 
    border-radius: 20%;
-
+   background-color: #276fab;
+   padding: 4px;
 
   }
+ 

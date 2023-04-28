@@ -34,7 +34,7 @@ export class ExperienciaComponent implements OnInit{
           alert("Experiencia eliminada correctamente")
           this.retrieveExperiencia(this.id);
         }, err =>{
-          alert("no se pudo eliminar la experiencia")
+          alert("no se pudo eliminar la experiencia" +err)
         })
     }}
 

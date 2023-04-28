@@ -15,7 +15,11 @@ export class AcercaDeComponent implements OnInit{
   @Input() currentPersona: Persona = {
     nombre: '',
     apellido: '',
-    edad: 0
+    edad: 0,
+    acercade:'',
+    ocupacion:'',
+    imagen:'',
+    banner:''
   };
   
   constructor(

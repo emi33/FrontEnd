@@ -15,7 +15,11 @@ export class EditPersonaComponent implements OnInit {
 
     nombre: '',
     apellido: '',
-    edad: 0
+    edad: 0,
+    acercade:'',
+    ocupacion:'',
+    imagen:'',
+    banner:''
   };
 
   constructor(
@@ -47,10 +51,10 @@ export class EditPersonaComponent implements OnInit {
         .subscribe(
           () => {
             console.log('exito');
-            this.router.navigate(['']);
+            this.router.navigate(['/portfolio/'+this.currentPersona.id]);
 
           }, err => {
-            alert("Error al cargar datos");
+            alert("Error al cargar datos "+err);
           }
         );
     }
