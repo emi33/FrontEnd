@@ -4,5 +4,5 @@ export class Experiencia {
     cargo!: string;
     fecha!: number;
     descripcion!: string;
-    personaid!: string;
+    personaid!: number;
 }

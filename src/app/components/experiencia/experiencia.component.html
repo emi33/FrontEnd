@@ -4,15 +4,30 @@
             <h3 class="block-title">Experiencia</h3>
             <div class="row" ><!--*ngFor="let experiencia of experiencias"-->
                 <br><hr class="col-11">
-                <div class="col-xl-3 col-md-6 mb-4">
-                    <div class="card border-left-primary shadow h-100 py-2">
+                <div class="col-xl-3 col-md-6 mb-">
+                    <div class="card border-left-primary shadow h-100 py-4">
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                        experiencia.puesto</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">experiencia.inicio experiencia.fin</div>
-                                    <h4>experiencia.descripcion</h4>
+                                <div class="col mr-4">
+                                    <ul class="list-group">
+                                        <li  class="list-group-item"  *ngFor="let experiencias of exp">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{experiencias.empresa}}</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{experiencias.cargo}}</div>
+                                            
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{experiencias.fecha}}</div>
+                                            <h4>{{experiencias.descripcion}}</h4>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{experiencias.personaid}}</div>
+                                            
+                                            <a class="btn btn-warning" routerLink="/experiencia/{{experiencias.id}}" >
+                                                Edit
+                                              </a>
+                                              <button type="submit" (click)="deleteExperiencia(experiencias.id)" class="btn btn-success">Delete</button>
+                                              
+                                        </li>
+
+                                    </ul>
+                                    <button><a routerLink="/add?experiencia/{{id}}">Crear Experiencia</a></button>
+                                    
                                 </div>
                                 <div class="col-auto">
                                     <i class="bi bi-calendar fa-2x text-gray-300"></i>

@@ -1,0 +1,61 @@
+
+<div *ngIf="currentExperiencia.id" class="edit-form">
+    <h4>Experiencia</h4>
+    <form>
+      <div class="form-group">
+        <label for="empresa">Empresa</label>
+        <input
+          type="text"
+          class="form-control"
+          id="empresa"
+          [(ngModel)]="currentExperiencia.empresa"
+          name="empresa"
+        />
+      </div>
+      <div class="form-group">
+        <label for="cargo">Cargo</label>
+        <input
+          type="text"
+          class="form-control"
+          id="cargo"
+          [(ngModel)]="currentExperiencia.cargo"
+          name="cargo"
+        />
+      </div>
+
+      <div class="form-group">
+          <label for="fecha">Fecha</label>
+          <input
+            type="text"
+            class="form-control"
+            id="fecha"
+            [(ngModel)]="currentExperiencia.fecha"
+            name="fecha"
+          />
+        </div>
+        <div class="form-group">
+            <label for="descripcion">Descripción</label>
+            <input
+              type="text"
+              class="form-control"
+              id="descripcion"
+              [(ngModel)]="currentExperiencia.descripcion"
+              name="descripcion"
+            />
+          </div>
+          <div>
+            <p>{{currentExperiencia.personaid}}</p>
+          </div>
+        <button
+      type="submit"
+      class="btn btn-warning  mb-2"
+      (click)="updateExperiencia()"
+    >
+      Update
+    </button>
+    </form>
+
+    
+
+  </div>
+

@@ -27,6 +27,7 @@ import { EditPersonaComponent } from './components-edit/edit-persona/edit-person
 import { AddPersonaComponent } from './components-add/add-persona/add-persona.component';
 import { PersonasComponent } from './components/personas/personas.component'; 
 import { PersonaService } from './services/persona.service';
+import { EditExperienciaComponent } from './components-edit/edit-experiencia/edit-experiencia.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { PersonaService } from './services/persona.service';
     AddExperienciaComponent,
     EditPersonaComponent,
     AddPersonaComponent,
-    PersonasComponent
+    PersonasComponent,
+    EditExperienciaComponent
   ],
   imports: [
     BrowserModule,
