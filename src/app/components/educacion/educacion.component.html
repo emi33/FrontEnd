@@ -1,27 +1,30 @@
 <section class="content" id="about">
-    <div class="block-content">
-        
-        <div class="timeline education">
-            <div class="container">
-                <h3 class="block-title">Educación</h3>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="exp-holder">
-                          <div>
-                            <div class="exp">
-                                <div class="hgroup">
-                                    <h4>Carrera <a href="" target="_blank"><span>Ver Certificado</span></a></h4>
-                                    <h5>fecha</h5>
-                                </div>
-                                <p>descripcion</p>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>Institución</th>
+                <th>Titulo</th>
+                <th>Fecha de inicio</th>
+                <th>Fecha de finalizacion</th>
+                
+            </tr>
+        </thead>
+    <tbody *ngFor="let estudios of edu">
+                <tr>
+                    <td>{{ estudios.institucion }}</td>
+                    <td>{{ estudios.titulo }}</td>
+                    <td>{{ estudios.fechainicio }}</td>
+                    <td>{{ estudios.fechafin }}</td>
+                    <td><a class="btn btn-warning" routerLink="/educacion/{{estudios.id}}" >
+                        Edit
+                      </a></td>
+                      <td><button type="submit" (click)="deleteEducacion(estudios.id)" class="btn btn-success">Delete</button></td>
+                </tr>
+                
+                  
+            </tbody>
             
-        </div>
-    </div>
-    
+        
+    </table>
+    <button class="btn btn-warning"><a routerLink="/add?educacion/{{id}}">Crear Educacion</a></button>
 </section>

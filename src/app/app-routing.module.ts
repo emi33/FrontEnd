@@ -11,9 +11,11 @@ import { PersonasComponent } from './components/personas/personas.component';
 import { EditPersonaComponent } from './components-edit/edit-persona/edit-persona.component';
 import { EditExperienciaComponent } from './components-edit/edit-experiencia/edit-experiencia.component';
 import { AddExperienciaComponent } from './components-add/add-experiencia/add-experiencia.component';
+import { EditEducacionComponent } from './components-edit/edit-educacion/edit-educacion.component';
+import { AddEducacionComponent } from './components-add/add-educacion/add-educacion.component';
 
 const routes: Routes = [
-  {path: 'portfolio', component: PortfolioComponent },
+  {path: 'portfolio', component: PortfolioComponent},
   {path: 'portfolio/:id', component: PortfolioComponent, canActivate: [AuthGuard] },
   {path:'login', component: LoginComponent},
   {path: '', redirectTo:'portfolio', pathMatch:'full'},
@@ -22,9 +24,11 @@ const routes: Routes = [
   {path: 'verificarcorreo', component: VerificarcorreoComponent},
   {path: 'personas', component: PersonasComponent},
   {path: 'persona/:id', component: EditPersonaComponent, canActivate: [AuthGuard]},
-  {path: 'add?persona', component: AddPersonaComponent},
+  {path: 'add?persona', component: AddPersonaComponent, canActivate: [AuthGuard]},
   {path: 'experiencia/:id', component: EditExperienciaComponent, canActivate: [AuthGuard]},
-  {path: 'add?experiencia/:personaid', component: AddExperienciaComponent, canActivate: [AuthGuard]}
+  {path: 'add?experiencia/:personaid', component: AddExperienciaComponent, canActivate: [AuthGuard]},
+  {path: 'educacion/:id', component: EditEducacionComponent, canActivate: [AuthGuard]},
+  {path: 'add?educacion/:personaid', component: AddEducacionComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

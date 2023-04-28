@@ -28,6 +28,11 @@ import { AddPersonaComponent } from './components-add/add-persona/add-persona.co
 import { PersonasComponent } from './components/personas/personas.component'; 
 import { PersonaService } from './services/persona.service';
 import { EditExperienciaComponent } from './components-edit/edit-experiencia/edit-experiencia.component';
+import { EditEducacionComponent } from './components-edit/edit-educacion/edit-educacion.component';
+import { AddEducacionComponent } from './components-add/add-educacion/add-educacion.component';
+import { HabilidadComponent } from './components/habilidad/habilidad.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +56,11 @@ import { EditExperienciaComponent } from './components-edit/edit-experiencia/edi
     EditPersonaComponent,
     AddPersonaComponent,
     PersonasComponent,
-    EditExperienciaComponent
+    EditExperienciaComponent,
+    EditEducacionComponent,
+    AddEducacionComponent,
+    HabilidadComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -59,7 +68,18 @@ import { EditExperienciaComponent } from './components-edit/edit-experiencia/edi
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+     
+     NgCircleProgressModule.forRoot({
+      // set defaults here
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300,
+    
+    })
   ],
   providers: [AuthService, PersonaService],
   bootstrap: [AppComponent]
