@@ -32,6 +32,8 @@ import { EditEducacionComponent } from './components-edit/edit-educacion/edit-ed
 import { AddEducacionComponent } from './components-add/add-educacion/add-educacion.component';
 import { HabilidadComponent } from './components/habilidad/habilidad.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { AddHabilidadComponent } from './components-add/add-habilidad/add-habilidad.component';
+import { EditHabilidadComponent } from './components-edit/edit-habilidad/edit-habilidad.component';
 
 
 @NgModule({
@@ -59,7 +61,9 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     EditExperienciaComponent,
     EditEducacionComponent,
     AddEducacionComponent,
-    HabilidadComponent
+    HabilidadComponent,
+    AddHabilidadComponent,
+    EditHabilidadComponent
     
   ],
   imports: [

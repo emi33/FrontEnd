@@ -13,6 +13,8 @@ import { EditExperienciaComponent } from './components-edit/edit-experiencia/edi
 import { AddExperienciaComponent } from './components-add/add-experiencia/add-experiencia.component';
 import { EditEducacionComponent } from './components-edit/edit-educacion/edit-educacion.component';
 import { AddEducacionComponent } from './components-add/add-educacion/add-educacion.component';
+import { AddHabilidadComponent } from './components-add/add-habilidad/add-habilidad.component';
+import { EditHabilidadComponent } from './components-edit/edit-habilidad/edit-habilidad.component';
 
 const routes: Routes = [
   {path: 'portfolio', component: PortfolioComponent},
@@ -28,7 +30,9 @@ const routes: Routes = [
   {path: 'experiencia/:id', component: EditExperienciaComponent, canActivate: [AuthGuard]},
   {path: 'add?experiencia/:personaid', component: AddExperienciaComponent, canActivate: [AuthGuard]},
   {path: 'educacion/:id', component: EditEducacionComponent, canActivate: [AuthGuard]},
-  {path: 'add?educacion/:personaid', component: AddEducacionComponent, canActivate: [AuthGuard]}
+  {path: 'add?educacion/:personaid', component: AddEducacionComponent, canActivate: [AuthGuard]},
+  {path: 'add?habilidad/:personaid', component: AddHabilidadComponent, canActivate: [AuthGuard]},
+  {path: 'habilidad/:id', component: EditHabilidadComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
