@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore'
 import { Router } from '@angular/router';
 import { User } from '../services/user';
-import * as auth from 'firebase/auth';
+
 
 @Injectable({
   providedIn: 'root'
@@ -86,11 +86,15 @@ export class AuthService {
   //retorna un true cuando un usuario ingresa y su email fue verificado, SI EL USUARIO ES usuario@portfolioweb.com, retorna true sin importar el email verified
   get isLoggedIn(): boolean{
     const user = JSON.parse(localStorage.getItem('user')!);
-    if (user.email=="usuario@portfolioweb.com"){
-      return true;
-    }else{
-      return (user !== null && user.emailVerified !== false) ? true: false;
+    if(user!=null){
+      if (user.email=="usuario@portfolioweb.com"){
+        return true;
+      }else{
+        return (user !== null && user.emailVerified !== false) ? true: false;
+      }
     }
+    return false;
+   
     
   }
 

@@ -2,27 +2,37 @@
     <div class="container py-5">
         <div class="row">
             <div class="col-lg-12 mx-auto mb-5  text-center">
-                <h1 class="display-4">Habilidades Blandas y Fuertes</h1>
+                <h1 class="display-4">Proyectos Realizados</h1>
             </div>
-          <div >
+          <div *ngFor="let proyectos of project">
             <div class="gradient rounded-lg p-5 shadow">
-              <h2 class="h6 font-weight-bold text-center mb-4">Java ATM</h2>
+              <h2 class="h6 font-weight-bold text-center mb-4">{{proyectos.nombreProyecto}}</h2>
               <div class="text-center mb-4 align-items-center">
                 
               </div>
                
               <div class="row text-center mt-6">
-                <div class="col-6 border-right">
-                  <div class="h4 font-weight-bold mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam explicabo reprehenderit odio nam, vero accusamus, quo, minima a eveniet maiores id ad in corporis asperiores velit necessitatibus recusandae. Voluptatem, dolore!</div><span class="small text-gray">Deploy: 2021</span>
-                  <div class="h6 font-weight-bold mb-0">Tiempo de desarrollo: 10 años</div>
+                <div class="col-10 border-right">
+                  <div class="h4 font-weight-bold mb-0">{{proyectos.descripcion}}</div><span class="small text-gray">Deploy: {{proyectos.lanzamiento}}</span>
+                  <div class="h6 font-weight-bold mb-0">Tiempo de desarrollo: {{proyectos.desarrollo}}</div>
+                  <div class="h6 font-weight-bold mb-0"><a href="{{proyectos.link}}" target="_blank">{{proyectos.link}}</a></div>
                 </div>
-                <div class="col-6">
-                  <div class="h4 font-weight-bold mb-0"><img src="https://blogs.iadb.org/conocimiento-abierto/wp-content/uploads/sites/10/2019/09/banner-siete-pasos-gestion-proyectos.jpg" alt="proyecto" id="proyecto"></div>
+                <div class="col-2">
+                  <div class="font-weight-bold mb-0"><a href="{{proyectos.img}}" class="image" target="_blank"><img alt="proyectotal" src="{{proyectos.img}}" decoding="async" width="300" height="202" srcset="{{proyectos.img}}" data-file-width="2199" data-file-height="1478"></a></div>
+                  
                 </div>
               </div>
+
             </div>
+            <a class="btn btn-warning" routerLink="/proyecto/{{proyectos.id}}" >
+              Edit
+            </a>
+            <button type="submit" (click)="deleteProyecto(proyectos.id)" class="btn btn-success">Delete</button>
           </div>
-    
+          
+       
         </div>
+        <br>
+        <button class="btn btn-warning"><a routerLink="/add?proyecto/{{id}}">Crear Proyecto</a></button>
       </div>
 </section>

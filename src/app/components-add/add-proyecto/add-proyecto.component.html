@@ -1,0 +1,80 @@
+<div style="width: 400px; margin: auto;">
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="nombreProyecto">Nombre del Proyecto</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nombreProyecto"
+            required
+            [(ngModel)]="project.nombreProyecto"
+            name="nombreProyecto"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="descripcion">Describa su proyecto</label>
+          <input
+            class="form-control"
+            id="descripcion"
+            required
+            [(ngModel)]="project.descripcion"
+            name="descripcion"
+          />
+        </div>
+        <div class="form-group">
+            <label for="desarrollo">¿Cuánto tiempo le llevo desarrollarlo?</label>
+            <input
+              type="text"
+              class="form-control"
+              id="desarrollo"
+              required
+              [(ngModel)]="project.desarrollo"
+              name="desarrollo"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="lanzamiento">Año de lanzamiento</label>
+            <input
+            type="number"
+              class="form-control"
+              id="lanzamiento"
+              required
+              [(ngModel)]="project.lanzamiento"
+              name="lanzamiento"
+            />
+          </div>
+          <div class="form-group">
+            <label for="img">Suba la imagen del proyecto</label>
+            <input
+              type="text"
+              class="form-control"
+              id="img"
+              required
+              [(ngModel)]="project.img"
+              name="img"
+            />
+          </div>
+          <div class="form-group">
+            <label for="link">Suba el link del proyecto, si es que esta dispobible</label>
+            <input
+              type="text"
+              class="form-control"
+              id="link"
+              required
+              [(ngModel)]="project.link"
+              name="link"
+            />
+          </div>
+  
+        <button (click)="saveProyecto()" class="btn btn-success">Submit</button>
+      </div>
+  
+      <div *ngIf="submitted">
+        <h4>You submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newProyecto()">Add</button>
+      </div>
+    </div>
+  </div>

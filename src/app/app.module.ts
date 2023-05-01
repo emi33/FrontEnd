@@ -34,6 +34,8 @@ import { HabilidadComponent } from './components/habilidad/habilidad.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { AddHabilidadComponent } from './components-add/add-habilidad/add-habilidad.component';
 import { EditHabilidadComponent } from './components-edit/edit-habilidad/edit-habilidad.component';
+import { AddProyectoComponent } from './components-add/add-proyecto/add-proyecto.component';
+import { EditProyectoComponent } from './components-edit/edit-proyecto/edit-proyecto.component';
 
 
 @NgModule({
@@ -63,7 +65,9 @@ import { EditHabilidadComponent } from './components-edit/edit-habilidad/edit-ha
     AddEducacionComponent,
     HabilidadComponent,
     AddHabilidadComponent,
-    EditHabilidadComponent
+    EditHabilidadComponent,
+    AddProyectoComponent,
+    EditProyectoComponent
     
   ],
   imports: [

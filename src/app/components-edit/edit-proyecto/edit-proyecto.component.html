@@ -1,0 +1,79 @@
+<div *ngIf="currentProyecto.id" class="edit-form">
+    <h4>Proyecto</h4>
+    <form>
+      <div class="form-group">
+        <label for="nombreProyecto">Nombre del Proyecto</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombreProyecto"
+          [(ngModel)]="currentProyecto.nombreProyecto"
+          name="nombreProyecto"
+        />
+      </div>
+      <div class="form-group">
+        <label for="descripcion">Descripcion</label>
+        <input
+          type="text"
+          class="form-control"
+          id="descripcion"
+          [(ngModel)]="currentProyecto.descripcion"
+          name="descripcion"
+        />
+      </div>
+
+      <div class="form-group">
+          <label for="desarrollo">Tiempo de desarrollo</label>
+          <input
+            type="text"
+            class="form-control"
+            id="desarrollo"
+            [(ngModel)]="currentProyecto.desarrollo"
+            name="desarrollo"
+          />
+        </div>
+        <div class="form-group">
+            <label for="lanzamiento">Año de lanzamiento</label>
+            <input
+              type="number"
+              class="form-control"
+              id="lanzamiento"
+              [(ngModel)]="currentProyecto.lanzamiento"
+              name="lanzamiento"
+            />
+          </div>
+          <div class="form-group">
+            <label for="img">Link de imagen</label>
+            <input
+              type="text"
+              class="form-control"
+              id="img"
+              [(ngModel)]="currentProyecto.img"
+              name="img"
+            />
+          </div>
+          <div class="form-group">
+            <label for="link">Link de proyecto</label>
+            <input
+              type="text"
+              class="form-control"
+              id="link"
+              [(ngModel)]="currentProyecto.link"
+              name="link"
+            />
+          </div>
+          <div>
+            <p>{{currentProyecto.personaid}}</p>
+          </div>
+        <button
+      type="submit"
+      class="btn btn-warning  mb-2"
+      (click)="updateProyecto()"
+    >
+      Update
+    </button>
+    </form>
+
+    
+
+  </div>

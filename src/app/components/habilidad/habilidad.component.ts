@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Habilidad } from 'src/app/entities/habilidad';
 import { HabilidadService } from 'src/app/services/habilidad.service';
 
@@ -7,7 +7,7 @@ import { HabilidadService } from 'src/app/services/habilidad.service';
   templateUrl: './habilidad.component.html',
   styleUrls: ['./habilidad.component.css']
 })
-export class HabilidadComponent {
+export class HabilidadComponent implements OnInit{
   skill!: Habilidad[];
   @Input() id: number=1;
 
