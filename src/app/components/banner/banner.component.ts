@@ -10,6 +10,7 @@ import { PersonaService } from 'src/app/services/persona.service';
 export class BannerComponent implements OnInit{
   @Input() id: number=1;
   currentPersona: Persona = {
+    
     nombre: '',
     apellido: '',
     edad: 0,

@@ -36,7 +36,12 @@ import { AddHabilidadComponent } from './components-add/add-habilidad/add-habili
 import { EditHabilidadComponent } from './components-edit/edit-habilidad/edit-habilidad.component';
 import { AddProyectoComponent } from './components-add/add-proyecto/add-proyecto.component';
 import { EditProyectoComponent } from './components-edit/edit-proyecto/edit-proyecto.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 
+import { provideStorage,getStorage } from '@angular/fire/storage';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { ImgUploadService } from './shared/services/img-upload.service';
 
 @NgModule({
   declarations: [
@@ -77,7 +82,9 @@ import { EditProyectoComponent } from './components-edit/edit-proyecto/edit-proy
     HttpClientModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-     
+    
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
      NgCircleProgressModule.forRoot({
       // set defaults here
       radius: 100,
@@ -87,9 +94,12 @@ import { EditProyectoComponent } from './components-edit/edit-proyecto/edit-proy
       innerStrokeColor: "#C7E596",
       animationDuration: 300,
     
-    })
+    }),
+           
   ],
-  providers: [AuthService, PersonaService],
+  providers: [AuthService, PersonaService, ImgUploadService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  
+ }

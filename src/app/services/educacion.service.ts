@@ -17,7 +17,7 @@ export class EducacionService {
     return this.http.get(this.baseUrl + 'traer');
   }
   getEducacion(id:number):Observable<any>{
-    return this.http.get(this.baseUrl + `educacion/${id}`);
+    return this.http.get(this.baseUrl + `obtener/${id}`);
   }
   createEducacion(educacion: Object): Observable<any>{
     return this.http.post(this.baseUrl+'crear', educacion);

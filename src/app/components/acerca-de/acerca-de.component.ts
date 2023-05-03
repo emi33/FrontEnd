@@ -13,6 +13,7 @@ export class AcercaDeComponent implements OnInit{
   @Input() viewMode = false;
   @Input() id: number=1;
   @Input() currentPersona: Persona = {
+    
     nombre: '',
     apellido: '',
     edad: 0,
