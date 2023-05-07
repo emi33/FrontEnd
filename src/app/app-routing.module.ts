@@ -17,6 +17,8 @@ import { AddHabilidadComponent } from './components-add/add-habilidad/add-habili
 import { EditHabilidadComponent } from './components-edit/edit-habilidad/edit-habilidad.component';
 import { AddProyectoComponent } from './components-add/add-proyecto/add-proyecto.component';
 import { EditProyectoComponent } from './components-edit/edit-proyecto/edit-proyecto.component';
+import { AddSocialComponent } from './components-add/add-social/add-social.component';
+import { EditSocialComponent } from './components-edit/edit-social/edit-social.component';
 
 const routes: Routes = [
   {path: 'portfolio', component: PortfolioComponent},
@@ -36,7 +38,9 @@ const routes: Routes = [
   {path: 'add?habilidad/:personaid', component: AddHabilidadComponent, canActivate: [AuthGuard]},
   {path: 'habilidad/:id', component: EditHabilidadComponent, canActivate: [AuthGuard]},
   {path: 'add?proyecto/:personaid', component: AddProyectoComponent, canActivate: [AuthGuard]},
-  {path: 'proyecto/:id', component: EditProyectoComponent, canActivate: [AuthGuard]}
+  {path: 'proyecto/:id', component: EditProyectoComponent, canActivate: [AuthGuard]},
+  {path: 'add?social/:personaid', component: AddSocialComponent, canActivate: [AuthGuard]},
+  {path: 'contacto/:id', component: EditSocialComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

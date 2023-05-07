@@ -42,6 +42,8 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { ImgUploadService } from './shared/services/img-upload.service';
+import { AddSocialComponent } from './components-add/add-social/add-social.component';
+import { EditSocialComponent } from './components-edit/edit-social/edit-social.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +74,9 @@ import { ImgUploadService } from './shared/services/img-upload.service';
     AddHabilidadComponent,
     EditHabilidadComponent,
     AddProyectoComponent,
-    EditProyectoComponent
+    EditProyectoComponent,
+    AddSocialComponent,
+    EditSocialComponent
     
   ],
   imports: [

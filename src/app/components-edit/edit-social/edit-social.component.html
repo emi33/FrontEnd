@@ -1,0 +1,39 @@
+<div *ngIf="currentContacto.id" class="edit-form">
+    <h4>Proyecto</h4>
+    <form>
+      <div class="form-group">
+        <label for="social">Nombre de Red Social</label>
+        <input
+          type="text"
+          class="form-control"
+          id="social"
+          [(ngModel)]="currentContacto.social"
+          name="social"
+        />
+      </div>
+      <div class="form-group">
+        <label for="user">link</label>
+        <input
+          type="text"
+          class="form-control"
+          id="user"
+          [(ngModel)]="currentContacto.user"
+          name="user"
+        />
+      </div>
+
+          <div>
+            <p>{{currentContacto.personaid}}</p>
+          </div>
+        <button
+      type="submit"
+      class="btn btn-warning  mb-2"
+      (click)="updateContacto()"
+    >
+      Update
+    </button>
+    </form>
+
+    
+
+  </div>
