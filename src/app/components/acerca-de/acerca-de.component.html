@@ -1,29 +1,41 @@
 <section id="acercade">
     <div class="container">
         <div class="row">
-            
-            <div class="col-md-3 col-sm-6 col-6" id="perfilfoto" *ngIf="currentPersona.imagen">
-                <img  src="{{currentPersona.imagen}}" alt="perfil">
+            <div class="gradient rounded-lg p-5 shadow">
+                <div class="row">
+                    <div class="col-md-3 col-sm-12" id="perfilfoto" *ngIf="currentPersona.imagen">
+                        <img src="{{currentPersona.imagen}}" alt="perfil">
+                    </div>
+                    <div class="col-md-9 col-sm-12">
+                        <h2 class=" font-weight-bold text-center">{{ currentPersona.nombre }} {{ currentPersona.apellido}}</h2>
+                        <h3 class=" font-weight-bold text-center">{{ currentPersona.edad }} Años</h3>
+                    </div>
+                </div>
+
+
+
+<br>
+                <div class="row  mt-6">
+                    <div class="col-md-3 col-sm-12">
+                        <a class="btn btn-warning" routerLink="/persona/{{ currentPersona.id }}">
+                            Editar
+                        </a>
+                    </div>
+                    <div class="text-center col-md-9 col-sm-12">
+                        <h3>Sobre mi:</h3>
+                        <div class="h4 font-weight-bold mb-0">{{currentPersona.acercade}}</div>
+                    </div>
+
+                </div>
+
             </div>
-            
-            <div class="col-md-3 col-sm-6 col-6">
-                <h2>{{ currentPersona.nombre }} {{ currentPersona.apellido }}</h2>
-                
-            </div>  
-           <div class="col-md-3 col-sm-6 col-6">
-                
-                <h3>{{ currentPersona.edad }} Años</h3>
-            </div>  
-            <h3>Sobre mí:</h3>
-            <div class="col-md-6 col-sm-12 col-12">{{currentPersona.acercade}}
-            </div>
-            <a class="btn btn-warning" routerLink="/persona/{{ currentPersona.id }}" >
-                Edit
-              </a>
+
+
+
         </div>
+
+
+        
     </div>
+
 </section>
-
-  
-
-             

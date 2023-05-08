@@ -7,7 +7,8 @@ import { Habilidad } from '../entities/habilidad';
   providedIn: 'root'
 })
 export class HabilidadService {
-  private baseUrl = 'http://localhost:8080/habilidad/';
+  //private baseUrl = 'http://localhost:8080/habilidad/';
+  private baseUrl = 'https://portfolio-creator.onrender.com/habilidad/';
   constructor(private http: HttpClient) { }
 
   getHabilidadList(id:number):Observable<any>{

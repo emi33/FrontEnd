@@ -1,30 +1,50 @@
-<section class="content" id="about">
-    <table class="table table-responsive">
-        <thead>
-            <tr>
-                <th>Institución</th>
-                <th>Titulo</th>
-                <th>Fecha de inicio</th>
-                <th>Fecha de finalizacion</th>
-                
-            </tr>
-        </thead>
-    <tbody *ngFor="let estudios of edu">
-                <tr>
-                    <td>{{ estudios.institucion }}</td>
-                    <td>{{ estudios.titulo }}</td>
-                    <td>{{ estudios.fechainicio }}</td>
-                    <td>{{ estudios.fechafin }}</td>
-                    <td><a class="btn btn-warning" routerLink="/educacion/{{estudios.id}}" >
-                        Edit
-                      </a></td>
-                      <td><button type="submit" (click)="deleteEducacion(estudios.id)" class="btn btn-success">Delete</button></td>
-                </tr>
-                
-                  
-            </tbody>
-            
-        
-    </table>
-    <button class="btn btn-warning"><a routerLink="/add?educacion/{{id}}">Crear Educacion</a></button>
-</section>
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12 mx-auto mb-5  text-center">
+            <h1 class="display-4">Formación Académica</h1>
+        </div>
+        <div class="gradient rounded-lg p-5 shadow">
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>Institución</th>
+                        <th>Titulo</th>
+                        <th>Fecha de inicio</th>
+                        <th>Fecha de finalizacion</th>
+                        
+                   
+                    </tr>
+                </thead>
+                <tbody *ngFor="let estudios of edu">
+                    <tr>
+                        <td>
+                            <h6>{{estudios.institucion}}</h6>
+                        </td>
+                        <td>
+                            <h6>{{ estudios.titulo }}</h6>
+                        </td>
+                        <td>
+                            {{ estudios.fechainicio }}
+                        </td>
+                        <td>
+                            {{estudios.fechafin}}
+                        </td>
+                      <td>
+                        <a class="btn btn-warning" routerLink="/educacion/{{estudios.id}}"><i
+                            class="bi bi-pencil"></i></a>
+                            <button type="submit" (click)="deleteEducacion(estudios.id)" class="btn btn-success"><i
+                                class="bi bi-trash"></i></button>
+                      </td>
+                                    
+                       
+                    </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    <br>
+    <div class="text-center"><button class="btn btn-warning"><a routerLink="/add?educacion/{{id}}">Crear
+        Educacion </a><i class="bi bi-plus"></i></button></div>
+</div>

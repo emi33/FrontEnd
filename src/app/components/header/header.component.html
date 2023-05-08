@@ -1,18 +1,31 @@
-<nav class="navbar navbar-light bg-light">
-    <div class="container-fluid">
-        <a href="#" class="navbar-brand">Argentina Programa</a>
-        <button *ngIf="!authService.isLoggedIn"><a routerLink="/login">Ingresar</a></button>
-        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" *ngIf="authService.isLoggedIn">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-            <div class="navbar-nav">
-                <button><a routerLink="/personas">Perfiles</a></button>
-                <button><a routerLink="/add?persona">Crear Perfil</a></button>
-                <input type="button" class="btn btn-primary" value="Sign Out"
-                (click)="authService.SignOut()">
+<header>
+    <nav class="navbar navbar-dark bg-info">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand"><img src="../../../assets/APLogo-20-20.png" alt="logoarg"></a>
+            <button *ngIf="!authService.isLoggedIn"><a routerLink="/login"><button
+                        class="btn btn-primary">Ingresar</button> </a></button>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                *ngIf="authService.isLoggedIn">
+                <span>Mi Cuenta</span></button>
+
+            <div class="collapse navbar-collapse menu" id="navbarCollapse">
+                <div class="navbar-nav">
+               
+<div class="right-aligned"><button class="btn btn-warning"><a routerLink="/personas">Ver Perfiles</a></button></div>
+<div class=" right-aligned"> <button class="btn btn-warning"><a routerLink="/add?persona">Crear Perfil</a></button></div>
+<div class=" right-aligned"> <input type="button" class="btn btn-primary" value="Sign Out" (click)="authService.SignOut()"></div>
+                            
+                        
+                        
+                       
+                
+                   
+                    
+                </div>
+
             </div>
-        
+
+
         </div>
-    </div>
-</nav>
+    </nav>
+</header>

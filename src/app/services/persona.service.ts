@@ -7,8 +7,8 @@ import { Persona } from '../entities/persona';
   providedIn: 'root'
 })
 export class PersonaService {
-
-  private baseUrl = 'http://localhost:8080/personas/';
+  //private baseUrl = 'http://localhost:8080/personas/';
+  private baseUrl = 'https://portfolio-creator.onrender.com/personas/';
   constructor(private http: HttpClient) { }
 
   getPersonaList():Observable<any>{

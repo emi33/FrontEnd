@@ -7,7 +7,8 @@ import { Educacion } from '../entities/educacion';
   providedIn: 'root'
 })
 export class EducacionService {
-  private baseUrl = 'http://localhost:8080/educacion/';
+  //private baseUrl = 'http://localhost:8080/educacion/';
+  private baseUrl = 'https://portfolio-creator.onrender.com/educacion/';
   constructor(private http: HttpClient) { }
 
   getEducacionList(id:number):Observable<any>{

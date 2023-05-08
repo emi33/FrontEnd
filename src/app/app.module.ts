@@ -9,7 +9,6 @@ import { ExperienciaComponent } from './components/experiencia/experiencia.compo
 import { EducacionComponent } from './components/educacion/educacion.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { ContactosComponent } from './components/contactos/contactos.component';
-import { PerfilComponent } from './components/perfil/perfil.component';
 import { LoginComponent } from './components/login/login.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -57,7 +56,7 @@ import { EditSocialComponent } from './components-edit/edit-social/edit-social.c
     ProyectosComponent,
     FooterComponent,
     ContactosComponent,
-    PerfilComponent,
+    
     LoginComponent,
     PortfolioComponent,
     RegisterComponent,

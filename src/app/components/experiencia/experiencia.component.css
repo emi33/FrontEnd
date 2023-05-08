@@ -1,0 +1,15 @@
+ 
+  .gradient {
+    background: #0eff0e;
+    background: -webkit-linear-gradient(to right, #a449b5, #6b42d9);
+    background: linear-gradient(to right, #bdc01a, #dd3d3d);
+    
+  }
+  
+  .rounded-lg {
+    border-radius: 1rem;
+  }
+  
+  .text-gray {
+    color: #000000;
+  }

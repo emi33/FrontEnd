@@ -1,11 +1,28 @@
 img {
-    background-color: #276fab;
+    background-color: #daab29;
     padding: 4px;
   
    margin-top: 10px;
    object-fit: cover; 
-   height: 400px; 
+   height: 700; 
   
    width: 100%;
   }
   
+  @media(max-width: 480px) {
+    img {
+      height: 200px;
+    }
+  }
+  
+  @media (min-width: 481px) and (max-width: 1024px) {
+    img {
+      height: 450px;
+    }
+  }
+  
+  @media (min-width: 1025px) {
+    img {
+      height: 600px;
+    }
+  }

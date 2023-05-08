@@ -7,7 +7,8 @@ import { Proyecto } from '../entities/proyecto';
   providedIn: 'root'
 })
 export class ProyectoService {
-  private baseUrl = 'http://localhost:8080/proyecto/';
+  //private baseUrl = 'http://localhost:8080/proyecto/';
+  private baseUrl = 'https://portfolio-creator.onrender.com/proyecto/';
   constructor(private http: HttpClient) { }
 
   getProyectoList(id:number):Observable<any>{
