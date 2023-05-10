@@ -16,14 +16,17 @@ export class EditPersonaComponent implements OnInit {
   name!:string;
   @Input() viewMode = false;
   @Input() currentPersona: Persona = {
+    id:0,
     nombre: '',
     apellido: '',
     edad: 0,
     acercade: '',
     ocupacion: '',
+    email:'',
     imagen: '',
     banner: ''
   };
+
   constructor(private personaService: PersonaService, private route: ActivatedRoute, private router: Router, public imguploadService: ImgUploadService) { }
   
   ngOnInit(): void {
@@ -32,7 +35,7 @@ export class EditPersonaComponent implements OnInit {
     
     if (!this.viewMode) {
       this.getPersona(this.numero);
-      this.name = "foto_de_" + this.numero;
+      this.name = "foto_perfil_" + this.numero;
     }
   }
   getPersona(id: number): void {
@@ -61,4 +64,5 @@ export class EditPersonaComponent implements OnInit {
     
     this.imguploadService.uploadImage($event, this.name, this.carpeta);
   }
+  
 }

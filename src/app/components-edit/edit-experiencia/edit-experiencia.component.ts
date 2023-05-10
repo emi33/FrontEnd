@@ -15,6 +15,7 @@ export class EditExperienciaComponent implements OnInit{
     descripcion: '',
     empresa:'',
     fecha:0,
+    fechafin:0,
     personaid: 0
   };
   constructor(

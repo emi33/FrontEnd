@@ -44,6 +44,7 @@ import { ImgUploadService } from './shared/services/img-upload.service';
 import { AddSocialComponent } from './components-add/add-social/add-social.component';
 import { EditSocialComponent } from './components-edit/edit-social/edit-social.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -98,6 +99,7 @@ import { EditSocialComponent } from './components-edit/edit-social/edit-social.c
       animationDuration: 300,
     
     }),
+   
            
   ],
   providers: [AuthService, PersonaService, ImgUploadService],

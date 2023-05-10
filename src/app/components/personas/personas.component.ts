@@ -11,12 +11,13 @@ import { PersonaService } from 'src/app/services/persona.service';
 export class PersonasComponent implements OnInit {
   persona?: Persona[];
   currentPersona: Persona = {
-    
+    id:0,
     nombre: '',
     apellido: '',
     edad: 0,
     acercade:'',
     ocupacion: '',
+    email:'',
     imagen: '',
     banner: ''
   };
@@ -41,12 +42,13 @@ export class PersonasComponent implements OnInit {
   refreshList(): void {
     this.retrievePersona();
     this.currentPersona = {
-      
+      id:0,
       nombre: '',
       apellido: '',
       edad: 0,
       acercade:'',
       ocupacion: '',
+      email:'',
       imagen: '',
       banner: ''
     };

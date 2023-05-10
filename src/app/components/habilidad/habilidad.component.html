@@ -19,18 +19,19 @@
           </div>
           <div class="row text-center mt-4">
             <div class="col-6 border-right">
-              <div class="h4 font-weight-bold mb-0">{{habilidades.semana}} horas</div><span class="small text-gray">Last week</span>
+              <div class="h4 font-weight-bold mb-0">{{habilidades.semana}} horas</div><span class="small text-gray">Última semana</span>
             </div>
             <div class="col-6">
-              <div class="h4 font-weight-bold mb-0">{{habilidades.mensual}} horas</div><span class="small text-gray">Last month</span>
+              <div class="h4 font-weight-bold mb-0">{{habilidades.mensual}} horas</div><span class="small text-gray">Último mes</span>
             </div>
           </div>
           <a class="btn btn-warning" routerLink="/habilidad/{{habilidades.id}}" >
-            Edit
+            Editar
           </a>
-          <button type="submit" (click)="deleteHabilidad(habilidades.id)" class="btn btn-success">Delete</button>
+          <button type="submit" (click)="deleteHabilidad(habilidades.id)" class="btn btn-success">Borrar</button>
         </div>
       </div>
-      <button class="btn btn-warning"><a routerLink="/add?habilidad/{{id}}">Crear Habilidad</a></button>
+      <div class="text-center">   <button class="btn btn-warning"><a routerLink="/add?habilidad/{{id}}">Crear Habilidad</a></button></div>
+   
     </div>
   </div>

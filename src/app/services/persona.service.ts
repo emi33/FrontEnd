@@ -30,4 +30,9 @@ export class PersonaService {
   updatePersona(id: number, data: Persona): Observable<any>{
     return this.http.put(`${this.baseUrl}editar/${id}`, data);
   }
+
+  getProximoId():Observable<any>{
+    return this.http.get(this.baseUrl + 'id');
+  }
+
 }

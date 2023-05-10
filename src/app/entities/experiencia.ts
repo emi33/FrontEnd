@@ -3,6 +3,7 @@ export class Experiencia {
     empresa!: string;
     cargo!: string;
     fecha!: number;
+    fechafin!: number;
     descripcion!: string;
     personaid!: number;
 }

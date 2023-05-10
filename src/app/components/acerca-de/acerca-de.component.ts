@@ -13,14 +13,15 @@ export class AcercaDeComponent implements OnInit{
   @Input() viewMode = false;
   @Input() id: number=1;
   @Input() currentPersona: Persona = {
-    
+    id:0,
     nombre: '',
     apellido: '',
     edad: 0,
     acercade:'',
     ocupacion:'',
+    email:'',
     imagen:'',
-    banner:''
+    banner:'',
   };
   
   constructor(
@@ -38,8 +39,8 @@ export class AcercaDeComponent implements OnInit{
     this.personaService.getPersona(personaid)
       .subscribe({
         next: (data) => {
-          this.currentPersona = data;
-          console.log(data);
+          this.currentPersona = data ;
+          console.log("data:"+data);
         },
         error: (e) => console.error(e)
       });

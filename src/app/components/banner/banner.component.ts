@@ -10,14 +10,15 @@ import { PersonaService } from 'src/app/services/persona.service';
 export class BannerComponent implements OnInit{
   @Input() id: number=1;
   currentPersona: Persona = {
-    
+    id:0,
     nombre: '',
     apellido: '',
     edad: 0,
     acercade:'',
     ocupacion:'',
+    email:'',
     imagen:'',
-    banner:''
+    banner:'',
   };
 constructor (private personaService: PersonaService){}
 

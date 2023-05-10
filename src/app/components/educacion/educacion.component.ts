@@ -34,5 +34,5 @@ deleteEducacion(id:number){
         alert("no se pudo eliminar la educacion" +err)
       })
   }}
-
+ 
 }

@@ -13,6 +13,7 @@ export class AddExperienciaComponent implements OnInit{
     cargo:'',
     descripcion:'',
     fecha: '',
+    fechafin:0,
     personaid:0
     
   };
@@ -48,6 +49,7 @@ newExperiencia(): void {
     cargo:'',
     descripcion:'',
     fecha: '',
+    fechafin:0,
     personaid:0
   }
 }
