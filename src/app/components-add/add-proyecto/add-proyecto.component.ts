@@ -8,6 +8,9 @@ import { ProyectoService } from 'src/app/services/proyecto.service';
   styleUrls: ['./add-proyecto.component.css']
 })
 export class AddProyectoComponent implements OnInit{
+  numero!: number;
+  name!:string;
+  carpeta!: string;
   project={
     nombreProyecto: '',
     descripcion:'',
@@ -23,7 +26,9 @@ export class AddProyectoComponent implements OnInit{
 
   }
   submitted = false;
-ngOnInit(): void {
+  ngOnInit(): void {
+  
+
   
 }
 saveProyecto():void {
@@ -32,7 +37,6 @@ saveProyecto():void {
     descripcion: this.project.descripcion,
     desarrollo: this.project.desarrollo,
     lanzamiento: this.project.lanzamiento,
-    img: this.project.img,
     link: this.project.link,
     personaid: this.route.snapshot.params['personaid']
   };

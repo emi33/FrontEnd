@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Proyecto } from 'src/app/entities/proyecto';
 import { ProyectoService } from 'src/app/services/proyecto.service';
+import { ImgUploadService } from 'src/app/shared/services/img-upload.service';
 
 @Component({
   selector: 'app-edit-proyecto',
@@ -9,6 +10,9 @@ import { ProyectoService } from 'src/app/services/proyecto.service';
   styleUrls: ['./edit-proyecto.component.css']
 })
 export class EditProyectoComponent implements OnInit{
+  numero!: number;
+  name!:string;
+  carpeta!: string;
   @Input() currentProyecto: Proyecto = {
     id:0,
     nombreProyecto: '',
@@ -22,10 +26,18 @@ export class EditProyectoComponent implements OnInit{
   constructor(
     private proyectoService: ProyectoService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    public imguploadService: ImgUploadService) { }
 
   ngOnInit(): void {
-    this.getProyecto(this.route.snapshot.params['id']);
+    this.numero = +this.route.snapshot.params['id'];//conversor a number
+    this.carpeta = "uploads/Foto_proyeco_" +this.numero;
+   
+    this.name = "proyecto_" + this.numero;
+    this.getProyecto(this.numero );
+   
+    
+    
   }
 
   getProyecto(id: number): void {
@@ -38,8 +50,9 @@ export class EditProyectoComponent implements OnInit{
         error: (e) => console.error(e)
       });
   }
-  updateProyecto(): void {
+  async updateProyecto(): Promise<void> {
     if (this.currentProyecto.id != null) {
+      this.currentProyecto.img = await this.imguploadService.getImageUrl(this.name, this.carpeta);
       this.proyectoService.updateProyecto(this.currentProyecto.personaid,this.currentProyecto.id, this.currentProyecto)
         .subscribe(
           () => {
@@ -51,5 +64,9 @@ export class EditProyectoComponent implements OnInit{
           }
         );
     }
+  }
+  uploadImage($event: any, nombrefoto: string, carpetafoto: string) {
+    
+    this.imguploadService.uploadImage($event, nombrefoto, carpetafoto);
   }
 }

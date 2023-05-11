@@ -43,15 +43,17 @@
             />
           </div>
           <div class="form-group">
-            <label for="img">Link de imagen</label>
+            <label for="img">Subir imagen</label>
             <input
-              type="text"
+              type="file"
               class="form-control"
               id="img"
-              [(ngModel)]="currentProyecto.img"
               name="img"
+              (change)="uploadImage($event,this.name, this.carpeta)"
+              accept=".jpg, .png, .jpeg"
             />
           </div>
+          
           <div class="form-group">
             <label for="link">Link de proyecto</label>
             <input

@@ -31,6 +31,7 @@ saveExperiencia():void {
     cargo: this.experiencia.cargo,
     descripcion: this.experiencia.descripcion,
     fecha: this.experiencia.fecha,
+    fechafin: this.experiencia.fechafin,
     personaid: this.route.snapshot.params['personaid']
   };
   this.experienciaService.createExperiencia(data)

@@ -3,13 +3,13 @@
         <div class="row">
             <div class="gradient rounded-lg p-5 shadow">
                 <div class="row">
-                    <div class="col-md-3 col-sm-12" id="perfilfoto" *ngIf="currentPersona.imagen">
+                    <div class="col-md-3 col-sm-12 text-center" id="perfilfoto" *ngIf="currentPersona.imagen">
                         <img src="{{currentPersona.imagen}}" alt="perfil">
                     </div>
                     <div class="col-md-9 col-sm-12">
                         <h2 class=" font-weight-bold text-center">{{ currentPersona.nombre }} {{ currentPersona.apellido}}</h2>
                         <h3 class=" font-weight-bold text-center">{{ currentPersona.edad }} Años</h3>
-                        <h4 class=" font-weight-bold text-center">Ocupacion{{ currentPersona.ocupacion }} </h4>
+                        <h4 class=" font-weight-bold text-center">{{ currentPersona.ocupacion }} </h4>
                     </div>
                 </div>
 

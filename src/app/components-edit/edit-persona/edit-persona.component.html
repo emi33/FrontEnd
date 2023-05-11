@@ -60,7 +60,7 @@
               class="form-control"
               id="imagen"
               name="imagen"
-              (change)="uploadImage($event)"
+              (change)="uploadImage($event, this.name, this.carpeta)"
               
               accept=".jpg, .png, .jpeg"
             />
@@ -68,13 +68,16 @@
           <div class="form-group">
             <label for="banner">Banner</label>
             <input
-              type="text"
+              type="file"
               class="form-control"
               id="banner"
-              [(ngModel)]="currentPersona.banner"
               name="banner"
+              (change)="uploadImage($event,this.namebanner, this.carpetabanner)"
+              
+              accept=".jpg, .png, .jpeg"
             />
           </div>
+         
           <div class="imagen" >
             <img [src]="imguploadService.url" alt="espera a que carge" width="200px">
           </div>

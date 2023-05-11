@@ -1,0 +1,51 @@
+.registro-persona .form-icon{
+    margin-top: 20%;
+	text-align: center;
+    background-color: #0646c7;
+    border-radius: 50%;
+    font-size: 40px;
+    color: white;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    margin-bottom: 50px;
+    line-height: 100px;
+}
+
+.registro-persona{
+	padding: 50px 0;
+    width: 450px; 
+    margin: auto;
+}
+.registro-persona form{
+    background-color: #d2e4e5;
+    max-width: 600px;
+    margin: auto;
+    padding: 50px 70px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+ 
+}
+
+@media (max-width: 576px) {
+    .registro-persona{
+       
+        width: 400px; 
+    
+    }
+    .registro-persona form{
+        padding: 50px 20px;
+    }
+
+    .registro-persona .form-icon{
+        width: 70px;
+        height: 70px;
+        font-size: 30px;
+        line-height: 70px;
+    }
+}
+body{
+    background-color: #164144;
+}

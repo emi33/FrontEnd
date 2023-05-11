@@ -1,54 +1,66 @@
 <!--No vamos a usar este add-persona porque no vamos a crear nuevas personas-->
-<div style="width: 400px; margin: auto;">
-  <div class="submit-form">
-    <div *ngIf="!submitted">
-      <div class="form-group">
-        <label for="nombre">nombre</label>
-        <input type="text" class="form-control" id="nombre" required [(ngModel)]="persona.nombre" name="nombre" />
-      </div>
-
-      <div class="form-group">
-        <label for="apellido">apellido</label>
-        <input class="form-control" id="apellido" required [(ngModel)]="persona.apellido" name="apellido" />
-      </div>
-
-      <div class="form-group">
-        <label for="edad">edad</label>
-        <input class="form-control" id="edad" required [(ngModel)]="persona.edad" name="edad" />
-      </div>
-
-      <div class="form-group">
-        <label for="acercade">Descripción</label>
-        <input class="form-control" id="acercade" required [(ngModel)]="persona.acercade" name="acercade" />
-      </div>
-      <div class="form-group">
-        <label for="ocupacion">Ocupación</label>
-        <input class="form-control" id="ocupacion" required [(ngModel)]="persona.ocupacion" name="ocupacion" />
-      </div>
-      <div class="form-group">
-        <label for="imagen">Foto de Perfil</label>
-        <input type="file" class="form-control" id="imagen" required name="imagen" (change)="uploadImage($event, this.name, this.carpeta)"
-          accept=".jpg, .png, .jpeg" />
-      </div>
-     
-      <div class="form-group">
-        <label for="banner">Banner</label>
-        <input type="file" class="form-control" id="banner" required (change)="uploadImage($event,this.namebanner, this.carpetabanner)" name="banner"
-          accept=".jpg, .png, .jpeg" />
-      </div>
-     
-      <button type="submit" class="btn btn-warning  mb-2" (click)="createPersona()">
-        Submit
-      </button>
-
-      <div class="banner">
-        <img [src]="imguploadService.url" alt="espera a que carge" width="200px">
+<body>
+  <div class="container">
+    <div class="row">
+      
+      <div class="registro-persona">
+        
+        <form (ngSubmit)="savePersona()" [formGroup]="personaForm">
+          
+            <div *ngIf="!submitted" class="mb-4">
+              <div class="form-icon mb-4">
+                <span><i class="bi bi-person"></i></span>
+              </div>
+            
+              <h2 class="text-center mb-4">Crea un Perfil Nuevo</h2>
+              <div class="mb-4">
+                <label for="nombre" class="form-label">Escribe tu nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required formControlName="nombre"/>
+                <div *ngIf="personaForm.get('nombre')?.touched && personaForm.get('nombre')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+                <div *ngIf="personaForm.get('nombre')?.touched && personaForm.get('nombre')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener mas de {{personaForm.get('nombre')?.errors?.['minlength'].requiredLength}} caracteres</div>
+              </div>
+        
+              <div class="mb-4">
+                <label for="apellido" class="form-label">Escribe tu apellido</label>
+                <input class="form-control" id="apellido" required formControlName="apellido" name="apellido" />
+                <div *ngIf="personaForm.get('apellido')?.touched && personaForm.get('apellido')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+                <div *ngIf="personaForm.get('apellido')?.touched && personaForm.get('apellido')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener mas de {{personaForm.get('apellido')?.errors?.['minlength'].requiredLength}} caracteres</div>
+              </div>
+        
+              <div class="mb-4">
+                <label for="edad" class="form-label">Ingresa tu edad</label>
+                <input type="number" class="form-control" id="edad" required formControlName="edad" name="edad" />
+                <div *ngIf="personaForm.get('edad')?.touched && personaForm.get('edad')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+              </div>
+        
+              <div class="mb-4">
+                <label for="acercade" class="form-label">Aquí puedes colocar una decripcion sobre ti mismo</label>
+                <textarea name="acercade" id="acercade" cols="30" rows="5" class="form-control" required formControlName="acercade">
+                </textarea>
+                <div *ngIf="personaForm.get('acercade')?.touched && personaForm.get('acercade')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+                <div *ngIf="personaForm.get('acercade')?.touched && personaForm.get('acercade')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener mas de {{personaForm.get('acercade')?.errors?.['minlength'].requiredLength}} caracteres</div>
+              </div>
+              <div class="mb-4">
+                <label for="ocupacion" class="form-label">¿Cuál es tu ocupación?</label>
+                <input class="form-control" id="ocupacion" required formControlName="ocupacion" name="ocupacion" />
+                <div *ngIf="personaForm.get('ocupacion')?.touched && personaForm.get('ocupacion')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+                <div *ngIf="personaForm.get('ocupacion')?.touched && personaForm.get('ocupacion')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener mas de {{personaForm.get('ocupacion')?.errors?.['minlength'].requiredLength}} caracteres</div>
+              </div>
+            
+             
+              <button type="submit" class="btn btn-warning  mb-2" [disabled]="personaForm.invalid"
+              (click)="savePersona()">
+                Submit
+              </button>
+            </div>
+        
+            <div *ngIf="submitted">
+              <h4>Creaste una perfil de forma exitosa</h4>
+              <button class="btn btn-success" (click)="newPersona()">Crear otro Perfil</button>
+            </div>
+          
+        </form>
+      </div> 
       </div>
     </div>
-
-    <div *ngIf="submitted">
-      <h4>You submitted successfully!</h4>
-      <button class="btn btn-success" (click)="newPersona()">Add</button>
-    </div>
-  </div>
-</div>
+</body>
