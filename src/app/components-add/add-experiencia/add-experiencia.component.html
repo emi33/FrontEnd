@@ -1,67 +1,65 @@
-<div style="width: 400px; margin: auto;">
-    <div class="submit-form">
-      <div *ngIf="!submitted">
-        <div class="form-group">
-          <label for="empresa">Empresa</label>
-          <input
-            type="text"
-            class="form-control"
-            id="empresa"
-            required
-            [(ngModel)]="experiencia.empresa"
-            name="empresa"
-          />
-        </div>
-  
-        <div class="form-group">
-          <label for="cargo">Cargo</label>
-          <input
-            class="form-control"
-            id="cargo"
-            required
-            [(ngModel)]="experiencia.cargo"
-            name="cargo"
-          />
-        </div>
-        <div class="form-group">
-            <label for="descripcion">Descripcion</label>
-            <input
-              class="form-control"
-              id="descripcion"
-              required
-              [(ngModel)]="experiencia.descripcion"
-              name="descripcion"
-            />
-          </div>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="registro-experiencia">
+        <div (ngSubmit)="saveExperiencia()" [formGroup]="experienciaForm">
+            <div *ngIf="!submitted" class="mb-4">
+              
+            
+              <h2 class="text-center mb-4">Crea una Experiencia Nueva</h2>
+              <div class="mb-4">
+                <label for="empresa" class="form-label">Escribe el nombre de la empresa</label>
+                <input type="text" class="form-control" id="empresa" name="empresa" required formControlName="empresa"/>
+                <div *ngIf="experienciaForm.get('empresa')?.touched && experienciaForm.get('empresa')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+                <div *ngIf="experienciaForm.get('empresa')?.touched && experienciaForm.get('empresa')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener mas de {{experienciaForm.get('empresa')?.errors?.['minlength'].requiredLength}} caracteres</div>
+              </div>
+        
+              <div class="mb-4">
+                <label for="cargo" class="form-label">Escribe el cargo que tenias</label>
+                <input class="form-control" id="cargo" required formControlName="cargo" name="cargo" />
+                <div *ngIf="experienciaForm.get('cargo')?.touched && experienciaForm.get('cargo')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+                <div *ngIf="experienciaForm.get('cargo')?.touched && experienciaForm.get('cargo')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener mas de {{experienciaForm.get('cargo')?.errors?.['minlength'].requiredLength}} caracteres</div>
+              </div>
 
-          <div class="form-group">
-            <label for="fecha">Fecha</label>
-            <input
-              class="form-control"
-              id="fecha"
-              required
-              [(ngModel)]="experiencia.fecha"
-              name="fecha"
-            />
-          </div>
+              <div class="mb-4">
+                <label for="descripcion" class="form-label">Aquí puedes colocar una decripcion sobre tu trabajo</label>
+                <textarea name="descripcion" id="descripcion" cols="30" rows="5" class="form-control" required formControlName="descripcion">
+                </textarea>
+                <div *ngIf="experienciaForm.get('descripcion')?.touched && experienciaForm.get('descripcion')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+                <div *ngIf="experienciaForm.get('descripcion')?.touched && experienciaForm.get('descripcion')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener mas de {{experienciaForm.get('descripcion')?.errors?.['minlength'].requiredLength}} caracteres</div>
+              </div>
+        
+              <div class="mb-4">
+                <label for="fecha" class="form-label">Ingresa el año de comienzo de trabajo</label>
+                <input type="number" class="form-control" id="fecha" required formControlName="fecha" name="fecha" />
+                <div *ngIf="experienciaForm.get('fecha')?.touched && experienciaForm.get('fecha')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+              </div>
 
-          <div class="form-group">
-            <label for="fechafin">Fecha de finalizacion</label>
-            <input
-              class="form-control"
-              id="fechafin"
-              required
-              [(ngModel)]="experiencia.fechafin"
-              name="fechafin"
-            />
+              <div class="mb-4">
+                <label for="fechafin" class="form-label">Ingresa el año de Finalización del trabajo</label>
+                <input type="number" class="form-control" id="fechafin" required formControlName="fechafin" name="fechafin" />
+                <div *ngIf="experienciaForm.get('fechafin')?.touched && experienciaForm.get('fechafin')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+              </div>
+
+              <button type="submit" class="btn btn-warning" [disabled]="experienciaForm.invalid"
+              (click)="saveExperiencia()">
+                Crear
+              </button>
+            </div>
+        
+            <div *ngIf="submitted">
+              <h4>Creaste una Educacion de forma exitosa</h4>
+              <button class="btn btn-success" (click)="newExperiencia()">Crear otra experiencia</button>
+              
+            </div>
+            <br>
+          <div class="mb-4">
+            <a class="btn btn-warning" routerLink="/portfolio/{{numero}}" >
+              Volver a Home
+            </a>
           </div>
-  
-        <button (click)="saveExperiencia()" class="btn btn-success">Submit</button>
-      </div>
-  
-      <div *ngIf="submitted">
-        <h4>You submitted successfully!</h4>
-        <button class="btn btn-success" (click)="newExperiencia()">Add</button>
+        </div>
+      </div> 
       </div>
     </div>
-  </div>
+</body>

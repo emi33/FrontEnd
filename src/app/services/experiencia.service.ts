@@ -7,7 +7,6 @@ import { Experiencia } from '../entities/experiencia';
   providedIn: 'root'
 })
 export class ExperienciaService {
-  //private baseUrl = 'http://localhost:8080/experiencias/';
   private baseUrl = 'https://portfolio-creator.onrender.com/experiencias/';
   constructor(private http: HttpClient) { }
 
@@ -20,7 +19,7 @@ export class ExperienciaService {
   getExperiencia(id:number):Observable<any>{
     return this.http.get(this.baseUrl + `experiencia/${id}`);
   }
-  createExperiencia(experiencia: Object): Observable<any>{
+  createExperiencia(experiencia: any): Observable<any>{
     return this.http.post(this.baseUrl+'crear', experiencia);
   }
   updateExperiencia(personaid: number, id: number, data: Experiencia): Observable<any>{

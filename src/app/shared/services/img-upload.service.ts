@@ -13,6 +13,7 @@ export class ImgUploadService {
 
 
   public uploadImage($event: any, name: string, carpeta: string){
+    
     const file = $event.target.files[0]
     console.log(file);
     this.storage.upload(carpeta+'/' + name, file)

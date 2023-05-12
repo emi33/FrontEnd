@@ -3,19 +3,16 @@
         <div class="col-lg-12 mx-auto mb-5  text-center">
             <h1 class="display-4">Formación Académica</h1>
         </div>
-        <div class="gradient rounded-lg p-5 shadow">
-            <table class="table table-responsive">
+        <div class="gradient rounded-lg p-5 shadow" *ngIf="edu">
+            <table class="table table-responsive" >
                 <thead>
                     <tr>
                         <th>Institución</th>
                         <th>Titulo</th>
                         <th>Fecha de inicio</th>
-                        <th>Fecha de finalizacion</th>
-                        
-                   
+                        <th>Fecha de finalizacion</th>                                       
                     </tr>
-                </thead>
-                
+                </thead>            
                 <tbody *ngFor="let estudios of edu"  >
                     <tr>
                         <td>
@@ -35,14 +32,9 @@
                             class="bi bi-pencil"></i></a>
                             <button type="submit" (click)="deleteEducacion(estudios.id)" class="btn btn-success"><i
                                 class="bi bi-trash"></i></button>
-                      </td>
-                                    
-                       
+                      </td>                                               
                     </tr>
-
-                </tbody>
-              
-
+                </tbody>        
             </table>
         </div>
     </div>

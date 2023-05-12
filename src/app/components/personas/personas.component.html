@@ -1,59 +1,63 @@
 <div class="container">
   <div class="list row">
-    <div class="col-md-8">
+    <div class="col-md-8 mb-4">
     </div>
-    <div class="col-md-6">
-      <h4>Lista de Personas</h4>
-      <ul class="list-group">
-        <li
-          class="list-group-item"
-          *ngFor="let personas of persona; let i = index"
-          [class.active]="i == currentIndex"
-          (click)="setActivePersona(personas, i)"
-        >
-          {{ personas.nombre }}
-          {{ personas.apellido }}
-          {{ personas.edad }}
-        </li>
-      </ul>
-  
-    </div>
-  <div>
-  <div *ngIf="currentPersona.id">
-    <h4>Tutorial</h4>
-    <div>
-      <label><strong>Nombre</strong></label> {{ currentPersona.nombre }}
-    </div>
-    <div>
-      <label><strong>Apellido:</strong></label>
-      {{ currentPersona.apellido }}
-    </div>
-    <div>
-      <label><strong>Edad:</strong></label>
-      {{ currentPersona.edad}}
-    </div>
-    <div>
-      <label><strong>Sobre mi:</strong></label>
-      {{ currentPersona.acercade}}
-    </div>
-    <div>
-      <label><strong>Ocupación:</strong></label>
-      {{ currentPersona.ocupacion}}
-    </div>
-    <div>
-      <label><strong>Imagen:</strong></label>
-      {{ currentPersona.imagen}}
-    </div>
-    <div>
-      <label><strong>Banner:</strong></label>
-      {{ currentPersona.banner}}
-    </div>
-    <a class="btn btn-warning" routerLink="/portfolio/{{currentPersona.id}}" >
-      Ir
-    </a>
-  </div>
+      <div class="col-md-6">
+        <h4>Lista de Personas</h4>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let personas of persona; let i = index" [class.active]="i == currentIndex"
+            (click)="setActivePersona(personas, i)">
+            {{ personas.nombre }}
+            {{ personas.apellido }}
+            {{ personas.edad }}
+          </li>
+        </ul>
+      </div>
+    <div style="padding: 20px;">
+      <div *ngIf="currentPersona.id">
+        <h4>Persona</h4>
+        <div>
+          <label><strong>ID:</strong></label> {{ currentPersona.id }}
+        </div>
+        <div>
+          <div>
+            <label><strong>Nombre</strong></label> {{ currentPersona.nombre }}
+          </div>
+          <div>
+            <label><strong>Apellido:</strong></label>
+            {{ currentPersona.apellido }}
+          </div>
+          <div>
+            <label><strong>Edad:</strong></label>
+            {{ currentPersona.edad}}
+          </div>
+          <div>
+            <label><strong>Sobre mi:</strong></label>
+            {{ currentPersona.acercade}}
+          </div>
+          <div>
+            <label><strong>Ocupación:</strong></label>
+            {{ currentPersona.ocupacion}}
+          </div>
+          <div>
+            <label><strong>Correo electronico:</strong></label>
+            {{ currentPersona.email}}
+          </div>
+          <div>
+            <label><strong>Imagen:</strong></label>
+            {{ currentPersona.imagen}}
+          </div>
+          <div>
+            <label><strong>Banner:</strong></label>
+            {{ currentPersona.banner}}
+          </div>
+          <a class="btn btn-warning" routerLink="/portfolio/{{currentPersona.id}}">
+            Ir
+          </a>
+          <button type="submit" (click)="deletePersona(currentPersona.id)" class="btn btn-success">Borrar</button>
+        </div>
 
-</div>
+      </div>
+    </div>
   </div>
 </div>
-

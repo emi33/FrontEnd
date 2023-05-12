@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EducacionService } from 'src/app/services/educacion.service';
 
@@ -7,50 +8,57 @@ import { EducacionService } from 'src/app/services/educacion.service';
   templateUrl: './add-educacion.component.html',
   styleUrls: ['./add-educacion.component.css']
 })
-export class AddEducacionComponent implements OnInit{
-  educacion={
+export class AddEducacionComponent implements OnInit {
+  educacionForm!: FormGroup;
+  numero!: number;
+  educacion = {
     institucion: '',
-    titulo:'',
+    titulo: '',
     fechainicio: 0,
-    fechafin:0,
-    personaid:0
-    
+    fechafin: 0,
+    personaid: 0
   };
 
-  constructor(private educacionService:EducacionService, private router: Router, private route: ActivatedRoute){
+  constructor(private educacionService: EducacionService, private router: Router, private route: ActivatedRoute, private readonly fb: FormBuilder) {
 
   }
   submitted = false;
-ngOnInit(): void {
-  
-}
-saveEducacion():void {
-  const data = {
-    institucion: this.educacion.institucion,
-    titulo: this.educacion.titulo,
-    fechainicio: this.educacion.fechainicio,
-    fechafin: this.educacion.fechafin,
-    personaid: this.route.snapshot.params['personaid']
-  };
-  this.educacionService.createEducacion(data)
-  .subscribe(
-    response => {
-      console.log(response);
-      this.submitted= true;
-    }, error => {
-      console.log(error);
-    });
-}
-newEducacion(): void {
-  this.submitted=false;
-  this.educacion = {
-    institucion: '',
-    titulo:'',
-    fechainicio: 0,
-    fechafin:0,
-    personaid:0
-    
-  }
-}
 
+  ngOnInit(): void {
+    this.educacionForm = this.initForm();
+    this.numero = this.route.snapshot.params['personaid'];
+  }
+  saveEducacion(): void {
+    const educacion = this.educacionForm.getRawValue();
+    educacion.personaid = this.numero;
+    this.educacionService.createEducacion(educacion)
+      .subscribe(
+        response => {
+          console.log(response);
+          this.submitted = true;
+        }, error => {
+          console.log(error);
+        });
+  }
+  newEducacion(): void {
+    this.submitted = false;
+    this.educacionForm = this.initForm();
+    this.educacion = {
+      institucion: '',
+      titulo: '',
+      fechainicio: 0,
+      fechafin: 0,
+      personaid: 0
+
+    }
+  }
+  initForm(): FormGroup {
+    return this.fb.group({
+      institucion: ['', [Validators.required, Validators.minLength(5)]],
+      titulo: ['', [Validators.required, Validators.minLength(3)]],
+      fechainicio: ['', Validators.required],
+      fechafin: ['', [Validators.required]],
+      personaid: ['']
+    })
+  }
 }

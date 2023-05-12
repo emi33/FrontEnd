@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
@@ -8,7 +9,9 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class HeaderComponent implements OnInit{
 
-  constructor( public authService: AuthService){}
+  numero: number= this.route.snapshot.params['id'];
+  @Input() id: number=1;
+  constructor( public authService: AuthService, private route: ActivatedRoute){}
   ngOnInit(): void {
     
   }

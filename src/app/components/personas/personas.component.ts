@@ -59,4 +59,21 @@ export class PersonasComponent implements OnInit {
     this.currentPersona = persona;
     this.currentIndex = index;
   }
+
+  deletePersona(numero:number){
+    this.personaService.deletePersona(numero).subscribe(
+      () =>{
+        alert("Persona eliminada correctamente ")
+        this.reloadComponent();
+      
+      },()  =>{
+        alert("no se pudo eliminar persona ")
+      });
+  }
+
+  reloadComponent() {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate(['/personas']);
+}
 }

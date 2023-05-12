@@ -10,7 +10,7 @@ import { PersonaService } from 'src/app/services/persona.service';
   styleUrls: ['./acerca-de.component.css']
 })
 export class AcercaDeComponent implements OnInit{
-  @Input() viewMode = false;
+  
   @Input() id: number=1;
   @Input() currentPersona: Persona = {
     id:0,
@@ -30,9 +30,9 @@ export class AcercaDeComponent implements OnInit{
     private router: Router) { }
 
   ngOnInit(): void {
-    if (!this.viewMode) {
+   
       this.getPersona(this.id);
-    }
+    
   }
 
   getPersona(personaid: number): void {
@@ -40,7 +40,7 @@ export class AcercaDeComponent implements OnInit{
       .subscribe({
         next: (data) => {
           this.currentPersona = data ;
-          console.log("data:"+data);
+          console.log(data);
         },
         error: (e) => console.error(e)
       });

@@ -5,7 +5,7 @@
       
       <div class="registro-persona">
         
-        <form (ngSubmit)="savePersona()" [formGroup]="personaForm">
+        <div class="edit-form" (ngSubmit)="savePersona()" [formGroup]="personaForm">
           
             <div *ngIf="!submitted" class="mb-4">
               <div class="form-icon mb-4">
@@ -46,6 +46,13 @@
                 <div *ngIf="personaForm.get('ocupacion')?.touched && personaForm.get('ocupacion')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
                 <div *ngIf="personaForm.get('ocupacion')?.touched && personaForm.get('ocupacion')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener mas de {{personaForm.get('ocupacion')?.errors?.['minlength'].requiredLength}} caracteres</div>
               </div>
+
+              <div class="mb-4">
+                <label for="email" class="form-label">¿Cuál es tu correo?</label>
+                <input class="form-control" id="email" required formControlName="email" name="email" />
+                <div *ngIf="personaForm.get('email')?.touched && personaForm.get('email')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+                <div *ngIf="personaForm.get('email')?.touched && personaForm.get('email')?.errors?.['email']" class="alert alert-danger">Debes agregar un correo en este campo</div>
+              </div>
             
              
               <button type="submit" class="btn btn-warning  mb-2" [disabled]="personaForm.invalid"
@@ -58,8 +65,12 @@
               <h4>Creaste una perfil de forma exitosa</h4>
               <button class="btn btn-success" (click)="newPersona()">Crear otro Perfil</button>
             </div>
-          
-        </form>
+            <div class="mb-4">
+              <a class="btn btn-warning" routerLink="/portfolio/{{numero}}" >
+                Volver a Home
+              </a>
+            </div>
+          </div>
       </div> 
       </div>
     </div>

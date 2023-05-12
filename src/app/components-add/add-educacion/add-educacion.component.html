@@ -1,56 +1,59 @@
-<div style="width: 400px; margin: auto;">
-    <div class="submit-form">
-      <div *ngIf="!submitted">
-        <div class="form-group">
-          <label for="institucion">Institución Educativa</label>
-          <input
-            type="text"
-            class="form-control"
-            id="institucion"
-            required
-            [(ngModel)]="educacion.institucion"
-            name="institucion"
-          />
-        </div>
-  
-        <div class="form-group">
-          <label for="titulo">Titulo</label>
-          <input
-            class="form-control"
-            id="titulo"
-            required
-            [(ngModel)]="educacion.titulo"
-            name="titulo"
-          />
-        </div>
-        <div class="form-group">
-            <label for="fechainicio">Fecha de inicio</label>
-            <input
-              class="form-control"
-              id="fechainicio"
-              required
-              [(ngModel)]="educacion.fechainicio"
-              name="fechainicio"
-            />
-          </div>
+<body>
+  <div class="container">
+    <div class="row">
+      
+      <div class="registro-educacion">
+        
+        <div class="edit-form" (ngSubmit)="saveEducacion()" [formGroup]="educacionForm">
+          
+            <div *ngIf="!submitted" class="mb-4">
+                         
+              <h2 class="text-center mb-4">Crea una Educacion Nueva</h2>
+              <div class="mb-4">
+                <label for="institucion" class="form-label">Escribe el nombre de la institucion</label>
+                <input type="text" class="form-control" id="institucion" name="institucion" required formControlName="institucion"/>
+                <div *ngIf="educacionForm.get('institucion')?.touched && educacionForm.get('institucion')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+                <div *ngIf="educacionForm.get('institucion')?.touched && educacionForm.get('institucion')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener mas de {{educacionForm.get('institucion')?.errors?.['minlength'].requiredLength}} caracteres</div>
+              </div>
+        
+              <div class="mb-4">
+                <label for="titulo" class="form-label">Escribe el titulo obtenido</label>
+                <input class="form-control" id="titulo" required formControlName="titulo" name="titulo" />
+                <div *ngIf="educacionForm.get('titulo')?.touched && educacionForm.get('titulo')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+                <div *ngIf="educacionForm.get('titulo')?.touched && educacionForm.get('titulo')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener mas de {{educacionForm.get('titulo')?.errors?.['minlength'].requiredLength}} caracteres</div>
+              </div>
+        
+              <div class="mb-4">
+                <label for="fechainicio" class="form-label">Ingresa el año de comienzo de estudios</label>
+                <input type="number" class="form-control" id="fechainicio" required formControlName="fechainicio" name="fechainicio" />
+                <div *ngIf="educacionForm.get('fechainicio')?.touched && educacionForm.get('fechainicio')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+              </div>
 
-          <div class="form-group">
-            <label for="fechafin">Fecha de Finalización</label>
-            <input
-              class="form-control"
-              id="fechafin"
-              required
-              [(ngModel)]="educacion.fechafin"
-              name="fechafin"
-            />
+              <div class="mb-4">
+                <label for="fechafin" class="form-label">Ingresa el año de Finalización de estudios</label>
+                <input type="number" class="form-control" id="fechafin" required formControlName="fechafin" name="fechafin" />
+                <div *ngIf="educacionForm.get('fechafin')?.touched && educacionForm.get('fechafin')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+              </div>
+
+              <button type="submit" class="btn btn-warning  mb-2" [disabled]="educacionForm.invalid"
+              (click)="saveEducacion()">
+                Submit
+              </button>
+            </div>
+        
+            <div *ngIf="submitted">
+              <h4>Creaste una Educacion de forma exitosa</h4>
+              <button class="btn btn-success" (click)="newEducacion()">Crear otro Perfil</button>
+              
+            </div>
+            <br>
+          <div class="mb-4">
+            <a class="btn btn-warning" routerLink="/portfolio/{{numero}}" >
+              Volver a Home
+            </a>
           </div>
-  
-        <button (click)="saveEducacion()" class="btn btn-success">Submit</button>
-      </div>
-  
-      <div *ngIf="submitted">
-        <h4>You submitted successfully!</h4>
-        <button class="btn btn-success" (click)="newEducacion()">Add</button>
+        </div>
+      </div> 
       </div>
     </div>
-  </div>
+</body>

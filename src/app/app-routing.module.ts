@@ -30,7 +30,7 @@ const routes: Routes = [
   {path: 'verificarcorreo', component: VerificarcorreoComponent},
   {path: 'personas', component: PersonasComponent},
   {path: 'persona/:id', component: EditPersonaComponent, canActivate: [AuthGuard]},
-  {path: 'add?persona', component: AddPersonaComponent, canActivate: [AuthGuard]},
+  {path: 'add?persona/:id', component: AddPersonaComponent, canActivate: [AuthGuard]},
   {path: 'experiencia/:id', component: EditExperienciaComponent, canActivate: [AuthGuard]},
   {path: 'add?experiencia/:personaid', component: AddExperienciaComponent, canActivate: [AuthGuard]},
   {path: 'educacion/:id', component: EditEducacionComponent, canActivate: [AuthGuard]},
@@ -44,7 +44,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
