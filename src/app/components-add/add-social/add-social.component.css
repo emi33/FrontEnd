@@ -1,0 +1,32 @@
+.registro-social{
+	padding: 50px 0;
+    width: 450px; 
+    margin: auto;
+}
+.registro-social .edit-form{
+    background-color: #8ca07d;
+    max-width: 600px;
+    margin: auto;
+    padding: 50px 70px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+ 
+}
+
+@media (max-width: 576px) {
+    .registro-social{
+       
+        width: 400px; 
+    
+    }
+    .registro-social .edit-form{
+        padding: 50px 20px;
+    }
+
+    
+}
+body{
+    background-color: #7ea9ac;
+}

@@ -1,4 +1,65 @@
-<div style="width: 400px; margin: auto;">
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="registro-habilidad">
+        <div class="edit-form" (ngSubmit)="saveHabilidad()" [formGroup]="skillform">
+          
+            <div *ngIf="!submitted" class="mb-4">
+                          
+              <h2 class="text-center mb-4">Crea una Habilidad Nueva</h2>
+              <div class="mb-4">
+                <label for="habilidad" class="form-label">Escribe tu habilidad</label>
+                <input type="text" class="form-control" id="habilidad" name="habilidad" required formControlName="habilidad"/>
+                <div *ngIf="skillform.get('habilidad')?.touched && skillform.get('habilidad')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+                <div *ngIf="skillform.get('habilidad')?.touched && skillform.get('habilidad')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener mas de {{skillform.get('habilidad')?.errors?.['minlength'].requiredLength}} caracteres</div>
+              </div>
+        
+                      
+              <div class="mb-4">
+                <label for="porcentaje" class="form-label">Ingresa tu porcentaje de aprendizaje(del 1 al 100)</label>
+                <input type="number" class="form-control" id="porcentaje" required formControlName="porcentaje" name="porcentaje" />
+                <div *ngIf="skillform.get('porcentaje')?.touched && skillform.get('porcentaje')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+                <div *ngIf="skillform.get('porcentaje')?.touched && skillform.get('porcentaje')?.errors?.['min']" class="alert alert-danger">El valor no puede ser menor a 0</div>
+                <div *ngIf="skillform.get('porcentaje')?.touched && skillform.get('porcentaje')?.errors?.['max']" class="alert alert-danger">El valor no puede ser mayor a 100</div>
+                <div *ngIf="skillform.get('porcentaje')?.touched && skillform.get('porcentaje')?.errors?.['pattern']" class="alert alert-danger">Número incorrecto</div>
+              </div>
+              <div class="mb-4">
+                <label for="semana" class="form-label">Ingresa las horas empleadas en esta habilidad la ultima semana</label>
+                <input type="number" class="form-control" id="edad" required formControlName="semana" name="semana" />
+                <div *ngIf="skillform.get('semana')?.touched && skillform.get('semana')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+                <div *ngIf="skillform.get('semana')?.touched && skillform.get('semana')?.errors?.['pattern']" class="alert alert-danger">Número incorrecto</div>
+              </div>
+              <div class="mb-4">
+                <label for="mensual" class="form-label">Ingresa las horas empleadas en esta habilidad el último mes</label>
+                <input type="number" class="form-control" id="mensual" required formControlName="mensual" name="mensual" />
+                <div *ngIf="skillform.get('mensual')?.touched && skillform.get('mensual')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+                <div *ngIf="skillform.get('mensual')?.touched && skillform.get('mensual')?.errors?.['pattern']" class="alert alert-danger">Número incorrecto</div>
+              </div>
+
+              <button type="submit" class="btn btn-warning  mb-2" [disabled]="skillform.invalid"
+              (click)="saveHabilidad()">
+                Submit
+              </button>
+            </div>
+        
+            <div *ngIf="submitted" class="mb-4">
+              <h4>Creaste una perfil de forma exitosa</h4>
+              <button class="btn btn-success" (click)="newHabilidad()">Crear otro Perfil</button>
+            </div>
+            <div class="mb-4">
+              <a class="btn btn-warning" routerLink="/portfolio/{{numero}}" >
+                Volver a Home
+              </a>
+            </div>
+          </div>
+      </div> 
+      </div>
+    </div>
+</body>
+
+
+
+<!--<div style="width: 400px; margin: auto;">
     <div class="submit-form">
       <div *ngIf="!submitted">
         <div class="form-group">
@@ -53,4 +114,4 @@
         <button class="btn btn-success" (click)="newHabilidad()">Add</button>
       </div>
     </div>
-  </div>
+  </div>-->

@@ -1,3 +1,71 @@
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="registro-proyecto">
+        <div class="edit-form" (ngSubmit)="saveProyecto()" [formGroup]="projectForm">
+          
+            <div *ngIf="!submitted" class="mb-4">
+                          
+              <h2 class="text-center mb-4">Crea un Proyecto Nuevo</h2>
+              <div class="mb-4">
+                <label for="nombreProyecto" class="form-label">Escribe el nombre de tu proyecto</label>
+                <input type="text" class="form-control" id="nombreProyecto" name="nombreProyecto" required formControlName="nombreProyecto"/>
+                <div *ngIf="projectForm.get('nombreProyecto')?.touched && projectForm.get('nombreProyecto')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+                <div *ngIf="projectForm.get('nombreProyecto')?.touched && projectForm.get('nombreProyecto')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener mas de {{projectForm.get('nombreProyecto')?.errors?.['minlength'].requiredLength}} caracteres</div>
+              </div>
+
+              <div class="mb-4">
+                <label for="descripcion" class="form-label">Describe tu proyecto</label>
+                <input type="text" class="form-control" id="descripcion" name="descripcion" required formControlName="descripcion"/>
+                <div *ngIf="projectForm.get('descripcion')?.touched && projectForm.get('descripcion')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+                <div *ngIf="projectForm.get('descripcion')?.touched && projectForm.get('descripcion')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener mas de {{projectForm.get('descripcion')?.errors?.['minlength'].requiredLength}} caracteres</div>
+              </div>
+
+              <div class="mb-4">
+                <label for="desarrollo" class="form-label">¿Cuánto tiempo te llevo desarrolarlo?</label>
+                <input type="text" class="form-control" id="desarrollo" name="desarrollo" required formControlName="desarrollo"/>
+                <div *ngIf="projectForm.get('desarrollo')?.touched && projectForm.get('desarrollo')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+                <div *ngIf="projectForm.get('desarrollo')?.touched && projectForm.get('desarrollo')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener mas de {{projectForm.get('desarrollo')?.errors?.['minlength'].requiredLength}} caracteres</div>
+              </div>
+
+              <div class="mb-4">
+                <label for="link" class="form-label">Agrega el link del proyecto, si está disponible</label>
+                <input type="text" class="form-control" id="link" name="link" required formControlName="link"/>
+                <div *ngIf="projectForm.get('link')?.touched && projectForm.get('link')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+                <div *ngIf="projectForm.get('link')?.touched && projectForm.get('link')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener mas de {{projectForm.get('link')?.errors?.['minlength'].requiredLength}} caracteres</div>
+              </div>
+        
+                      
+              <div class="mb-4">
+                <label for="lanzamiento" class="form-label">Ingresa el año de lanzamiento</label>
+                <input type="number" class="form-control" id="lanzamiento" required formControlName="lanzamiento" name="lanzamiento" />
+                <div *ngIf="projectForm.get('lanzamiento')?.touched && projectForm.get('lanzamiento')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+               
+                <div *ngIf="projectForm.get('lanzamiento')?.touched && projectForm.get('lanzamiento')?.errors?.['pattern']" class="alert alert-danger">Número incorrecto</div>
+              </div>
+             
+              
+              <button type="submit" class="btn btn-warning  mb-2" [disabled]="projectForm.invalid"
+              (click)="saveProyecto()">
+                Submit
+              </button>
+            </div>
+        
+            <div *ngIf="submitted">
+              <h4>Creaste una perfil de forma exitosa</h4>
+              <button class="btn btn-success" (click)="newProyecto()">Crear otro Perfil</button>
+            </div>
+            <div class="mb-4">
+              <a class="btn btn-warning" routerLink="/portfolio/{{numero}}" >
+                Volver a Home
+              </a>
+            </div>
+          </div>
+      </div> 
+      </div>
+    </div>
+</body>
+<!--
 <div style="width: 400px; margin: auto;">
     <div class="submit-form">
       <div *ngIf="!submitted">
@@ -67,4 +135,4 @@
         <button class="btn btn-success" (click)="newProyecto()">Add</button>
       </div>
     </div>
-  </div>
+  </div>-->

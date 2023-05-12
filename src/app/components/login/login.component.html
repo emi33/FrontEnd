@@ -12,16 +12,16 @@
             <div class="form-outline mb-4 formGroup">
               <input type="text" class="formControl" placeholder="Username" formControlName="userName" #userName required />
               <label class="form-label" for="form2Example1">Email address</label>
-              <div *ngIf="log.get('userName')?.invalid && (log.get('userName')?.dirty || log.get('userName')?.touched)">
-                Please provide a name.
+              <div *ngIf="log.get('userName')?.invalid && (log.get('userName')?.dirty || log.get('userName')?.touched)" style="color:red">
+                Error usuario
               </div>
             </div>
             
             <div class="form-outline mb-4 formGroup">
               <input type="password" class="formControl" placeholder="Password" formControlName="password" #userPassword required />
               <label class="form-label" for="form2Example2">Password</label>
-              <div *ngIf="log.get('password')?.invalid && (log.get('password')?.dirty || log.get('password')?.touched)">
-                Please provide a password
+              <div *ngIf="log.get('password')?.invalid && (log.get('password')?.dirty || log.get('password')?.touched)" style="color:red">
+                Error contraseña
               </div>
             </div>
             <div class="row mb-4">

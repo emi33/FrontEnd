@@ -5,7 +5,7 @@
     width: 450px; 
     margin: auto;
 }
-.registro-experiencia form{
+.registro-experiencia .edit-form{
     background-color: #8ca07d;
     max-width: 600px;
     margin: auto;
@@ -23,7 +23,7 @@
         width: 400px; 
     
     }
-    .registro-experiencia form{
+    .registro-experiencia .edit-form{
         padding: 50px 20px;
     }
 

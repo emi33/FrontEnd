@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="registro-experiencia">
-        <div (ngSubmit)="saveExperiencia()" [formGroup]="experienciaForm">
+        <div class="edit-form" (ngSubmit)="saveExperiencia()" [formGroup]="experienciaForm">
             <div *ngIf="!submitted" class="mb-4">
               
             
@@ -41,13 +41,16 @@
                 <div *ngIf="experienciaForm.get('fechafin')?.touched && experienciaForm.get('fechafin')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
               </div>
 
+              
               <button type="submit" class="btn btn-warning" [disabled]="experienciaForm.invalid"
               (click)="saveExperiencia()">
                 Crear
               </button>
+             
+              
             </div>
         
-            <div *ngIf="submitted">
+            <div *ngIf="submitted" class="mb-4">
               <h4>Creaste una Educacion de forma exitosa</h4>
               <button class="btn btn-success" (click)="newExperiencia()">Crear otra experiencia</button>
               

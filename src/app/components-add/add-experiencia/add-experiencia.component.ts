@@ -10,8 +10,8 @@ import { ExperienciaService } from 'src/app/services/experiencia.service';
   styleUrls: ['./add-experiencia.component.css']
 })
 export class AddExperienciaComponent implements OnInit{
-  numero: number= +this.route.snapshot.params['personaid'];;
-  experienciaForm: FormGroup=this.initForm();
+  numero!: number;
+  experienciaForm!: FormGroup
   
   submitted = false;
   experiencia!:Experiencia;
@@ -21,8 +21,8 @@ export class AddExperienciaComponent implements OnInit{
   }
  
 ngOnInit(): void {
-  
-
+  this.numero= +this.route.snapshot.params['personaid'];
+ this.experienciaForm =this.initForm();
 }
 saveExperiencia():void {
   this.experiencia = this.experienciaForm.value;
