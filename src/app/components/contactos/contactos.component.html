@@ -5,7 +5,7 @@
            <div class="horizontal">
             <div class="social" *ngFor="let sociales of socials">           
                 <div class="form-icon">
-                    <a href="{{sociales.user}}" target_="_blank"><i class="bi bi-{{sociales.social}} fs-1"></i></a>
+                    <a href="{{sociales.user}}" target="_blank"><i class="bi bi-{{sociales.social}} fs-1"></i></a>
                 </div>
                     <div *ngIf="authService.isLoggedIn">
                         <a class="btn btn-warning" style="margin-right: 5px;"  routerLink="/contacto/{{sociales.id}}"><i

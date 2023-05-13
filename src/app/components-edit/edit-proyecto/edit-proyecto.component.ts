@@ -50,7 +50,7 @@ export class EditProyectoComponent implements OnInit{
             descripcion: this.currentProyecto.descripcion,
             desarrollo: this.currentProyecto.desarrollo,
             lanzamiento: this.currentProyecto.lanzamiento,
-            img: this.currentProyecto.img,
+           
             link: this.currentProyecto.link,
             personaid: this.currentProyecto.personaid
           })
@@ -64,10 +64,10 @@ export class EditProyectoComponent implements OnInit{
       const proyecto= this.proyectoForm.value;
       //buscamos las url de las imagenes en firebase
       proyecto.img = await this.imguploadService.getImageUrl(this.name, this.carpeta);
-      this.proyectoService.updateProyecto(this.currentProyecto.personaid, this.currentProyecto.id, this.currentProyecto)
+      this.proyectoService.updateProyecto(this.currentProyecto.personaid, this.currentProyecto.id, proyecto)
         .subscribe(
           () => {
-            alert('exito: ' );
+            alert('exito, ahora si: ' );
             console.log(this.currentProyecto);
             
             this.router.navigate(['/portfolio/' + this.currentProyecto.personaid]);
@@ -93,7 +93,7 @@ export class EditProyectoComponent implements OnInit{
       descripcion:['', [Validators.required, Validators.minLength(3)]],
       desarrollo:['', [Validators.required, Validators.minLength(3)]],
       lanzamiento: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
-      img:['', [Validators.required, Validators.minLength(4)]],
+      img:[],
       link:['', [Validators.required, Validators.minLength(10)]],
     })
     }
