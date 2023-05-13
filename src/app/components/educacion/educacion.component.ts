@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Educacion } from 'src/app/entities/educacion';
 import { EducacionService } from 'src/app/services/educacion.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-educacion',
@@ -10,7 +11,7 @@ import { EducacionService } from 'src/app/services/educacion.service';
 export class EducacionComponent implements OnInit{
   edu!: Educacion[];
   @Input() id: number=1;
-constructor(private educacionService: EducacionService){}
+constructor(private educacionService: EducacionService, public authService: AuthService ){}
 ngOnInit(): void {
   this.retrieveEducacion(this.id);
 }
@@ -27,11 +28,11 @@ retrieveEducacion(personaid: number): void {
 deleteEducacion(id:number){
   if(id != undefined){
     this.educacionService.deleteEducacion(id).subscribe(
-      data =>{
-        alert("Educacion eliminada correctamente" + data)
+      () =>{
+        alert("Educacion eliminada ")
         this.retrieveEducacion(this.id);
-      }, err =>{
-        alert("no se pudo eliminar la educacion" +err)
+      }, () =>{
+        alert("no se pudo eliminar la educacion")
       })
   }}
  

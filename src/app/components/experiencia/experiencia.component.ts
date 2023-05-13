@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Experiencia } from 'src/app/entities/experiencia';
 import { ExperienciaService } from 'src/app/services/experiencia.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class ExperienciaComponent implements OnInit{
   exp!: Experiencia[];
   @Input() id: number=1;
 
-  constructor(private experienciaService: ExperienciaService){}
+  constructor(private experienciaService: ExperienciaService, public authService: AuthService){}
   ngOnInit(): void {
     this.retrieveExperiencia(this.id);
   }
@@ -30,11 +31,11 @@ export class ExperienciaComponent implements OnInit{
   deleteExperiencia(id:number){
     if(id != undefined){
       this.experienciaService.deleteExperiencia(id).subscribe(
-        data =>{
+        () =>{
           alert("Experiencia eliminada correctamente")
           this.retrieveExperiencia(this.id);
-        }, err =>{
-          alert("no se pudo eliminar la experiencia" +err)
+        }, () =>{
+          alert("no se pudo eliminar la experiencia" )
         })
     }}
 

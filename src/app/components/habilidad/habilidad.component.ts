@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Habilidad } from 'src/app/entities/habilidad';
 import { HabilidadService } from 'src/app/services/habilidad.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-habilidad',
@@ -11,7 +12,7 @@ export class HabilidadComponent implements OnInit{
   skill!: Habilidad[];
   @Input() id: number=1;
 
-  constructor(private habilidadService: HabilidadService){}
+  constructor(private habilidadService: HabilidadService, public authService: AuthService){}
   ngOnInit(): void {
     this.retrieveHabilidad(this.id);
   }
@@ -29,11 +30,11 @@ export class HabilidadComponent implements OnInit{
   deleteHabilidad(id:number){
     if(id != undefined){
       this.habilidadService.deleteHabilidad(id).subscribe(
-        data =>{
-          alert("Habilidad eliminada correctamente " + data)
+        () =>{
+          alert("Habilidad eliminada correctamente ")
           this.retrieveHabilidad(this.id);
-        }, err =>{
-          alert("no se pudo eliminar la Habilidad " + err)
+        }, () =>{
+          alert("no se pudo eliminar la Habilidad ")
         })
     }}
 }

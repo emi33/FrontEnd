@@ -87,7 +87,7 @@ export class AuthService {
   get isLoggedIn(): boolean{
     const user = JSON.parse(localStorage.getItem('user')!);
     if(user!=null){
-      if (user.email=="usuario@portfolioweb.com"){
+      if (user.email=="usuario@portfolio.com"){
         return true;
       }else{
         return (user !== null && user.emailVerified !== false) ? true: false;
@@ -96,20 +96,6 @@ export class AuthService {
     return false;
    
     
-  }
-
-
-  //Logica de authentication para providers de authentication
-  AuthLogin(provider: any){
-    return this.afAuth
-    .signInWithPopup(provider)
-    .then((result)=>{
-      this.router.navigate(['portfolio']);
-      this.SetUserData(result.user);
-    })
-    .catch((error)=>{
-      window.alert(error);
-    });
   }
 
   //set user data metodo 

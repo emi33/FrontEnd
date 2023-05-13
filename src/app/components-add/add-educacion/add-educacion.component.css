@@ -5,8 +5,8 @@
     width: 450px; 
     margin: auto;
 }
-.registro-educacion edit-form{
-    background-color: #8ca07d;
+.registro-educacion .edit-form{
+    background-color: #5ebe54;
     max-width: 600px;
     margin: auto;
     padding: 50px 70px;
@@ -23,12 +23,12 @@
         width: 400px; 
     
     }
-    .registro-educacion edit-form{
+    .registro-educacion .edit-form{
         padding: 50px 20px;
     }
 
     
 }
 body{
-    background-color: #7ea9ac;
+    background-color: #4fcad3;
 }

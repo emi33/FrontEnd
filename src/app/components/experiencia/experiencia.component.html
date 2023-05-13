@@ -16,17 +16,21 @@
                                 </div>
                                     <div class=" font-weight-bold">Inicio de trabajo: {{experiencias.fecha}} </div>
                                     <div class=" font-weight-bold">Fin de trabajo: {{experiencias.fechafin}} </div>
-                                    <div class="h6 font-weight-bold mb-0">{{experiencias.descripcion}}</div>                                         
-                            </div>              
-                            <a class="btn btn-warning" style="margin-right: 10px;" routerLink="/experiencia/{{experiencias.id}}">
-                                Editar
-                            </a>
-                            <button type="submit" (click)="deleteExperiencia(experiencias.id!)"
-                                class="btn btn-success">Borrar</button>              
+                                    <div class="h6 font-weight-bold mb-2">{{experiencias.descripcion}}</div>                                         
+                            </div>    
+                            <div *ngIf="authService.isLoggedIn">
+                                <a class="btn btn-warning" style="margin-right: 10px;" routerLink="/experiencia/{{experiencias.id}}">
+                                    Editar
+                                </a>
+                                <button type="submit" (click)="deleteExperiencia(experiencias.id!)"
+                                    class="btn btn-danger">Borrar</button>  
+                            </div>                            
                 </div>             
             </div>
         </div>
         <br>
-        <div class="text-center">  <button class="btn btn-warning"><a routerLink="/add?experiencia/{{id}}">Crear Experiencia</a></button></div>      
+        <div class="text-center" *ngIf="authService.isLoggedIn">  
+            <button class="btn btn-primary" routerLink="/add?experiencia/{{id}}">Crear Experiencia <i class="bi bi-plus"></i></button>
+        </div>      
     </div>
 </section>

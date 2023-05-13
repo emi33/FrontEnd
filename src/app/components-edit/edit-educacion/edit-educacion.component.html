@@ -1,3 +1,59 @@
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="editar-educacion">
+        <div class="edit-form" (ngSubmit)="updateEducacion()" [formGroup]="educacionForm">
+          <h2 class="text-center mb-4">Editar Educacion</h2>
+          <div class="mb-4">
+            <label for="institucion" class="form-label">Nombre de la Institución</label>
+            <input type="text" 
+            class="form-control" 
+            id="institucion"
+            name="institucion" 
+            required formControlName="institucion"/>
+            <div *ngIf="educacionForm.get('institucion')?.touched && educacionForm.get('institucion')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+            <div *ngIf="educacionForm.get('institucion')?.touched && educacionForm.get('institucion')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener mas de {{educacionForm.get('institucion')?.errors?.['minlength'].requiredLength}} caracteres</div>
+          </div>
+
+          
+          <div class="mb-4">
+            <label for="titulo" class="form-label">Titulo Obtenido</label>
+            <input class="form-control" id="titulo" required formControlName="titulo" name="titulo" />
+            <div *ngIf="educacionForm.get('titulo')?.touched && educacionForm.get('titulo')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+            <div *ngIf="educacionForm.get('titulo')?.touched && educacionForm.get('titulo')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener mas de {{educacionForm.get('titulo')?.errors?.['minlength'].requiredLength}} caracteres</div>
+          </div>
+    
+          <div class="mb-4">
+            <label for="fechainicio" class="form-label">Ingresa el año de ingreso</label>
+            <input type="number" class="form-control" id="fechainicio" required formControlName="fechainicio" name="fechainicio" />
+            <div *ngIf="educacionForm.get('fechainicio')?.touched && educacionForm.get('fechainicio')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+          </div>
+
+          <div class="mb-4">
+            <label for="fechafin" class="form-label">Ingresa el año de egreso</label>
+            <input type="number" class="form-control" id="fechafin" required formControlName="fechafin" name="fechafin" />
+            <div *ngIf="educacionForm.get('fechafin')?.touched && educacionForm.get('fechafin')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+          </div>
+    
+          
+
+          <button type="submit" class="btn btn-success  mb-2" [disabled]="educacionForm.invalid"
+          (click)="updateEducacion()">
+            Actualizar
+          </button>
+
+          <div class="mb-4">
+            <a class="btn btn-danger" routerLink="/portfolio/{{currentEducacion.personaid}}" >
+              Volver a Home
+            </a>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</body>
+<!--
 <div *ngIf="currentEducacion.id" class="edit-form">
     <h4>Educacion</h4>
     <form>
@@ -57,4 +113,4 @@
     
 
   </div>
-
+-->

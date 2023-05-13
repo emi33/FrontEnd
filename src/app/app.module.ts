@@ -3,7 +3,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { AcercaDeComponent } from './components/acerca-de/acerca-de.component';
-import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ExperienciaComponent } from './components/experiencia/experiencia.component';
 import { EducacionComponent } from './components/educacion/educacion.component';
@@ -43,6 +42,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { ImgUploadService } from './shared/services/img-upload.service';
 import { AddSocialComponent } from './components-add/add-social/add-social.component';
 import { EditSocialComponent } from './components-edit/edit-social/edit-social.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 
 
 @NgModule({
@@ -52,7 +52,7 @@ import { EditSocialComponent } from './components-edit/edit-social/edit-social.c
     BannerComponent,
     AcercaDeComponent,
     ExperienciaComponent,
-    HomeComponent,
+   
     EducacionComponent,
     ProyectosComponent,
     FooterComponent,
@@ -76,7 +76,8 @@ import { EditSocialComponent } from './components-edit/edit-social/edit-social.c
     AddProyectoComponent,
     EditProyectoComponent,
     AddSocialComponent,
-    EditSocialComponent
+    EditSocialComponent,
+    PagenotfoundComponent
     
   ],
   imports: [

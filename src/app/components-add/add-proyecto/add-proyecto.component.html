@@ -45,18 +45,18 @@
               </div>
              
               
-              <button type="submit" class="btn btn-warning  mb-2" [disabled]="projectForm.invalid"
+              <button type="submit" class="btn btn-success  mb-2" [disabled]="projectForm.invalid"
               (click)="saveProyecto()">
-                Submit
+                Crear
               </button>
             </div>
         
-            <div *ngIf="submitted">
+            <div *ngIf="submitted" class="mb-4">
               <h4>Creaste una perfil de forma exitosa</h4>
               <button class="btn btn-success" (click)="newProyecto()">Crear otro Perfil</button>
             </div>
             <div class="mb-4">
-              <a class="btn btn-warning" routerLink="/portfolio/{{numero}}" >
+              <a class="btn btn-danger" routerLink="/portfolio/{{numero}}" >
                 Volver a Home
               </a>
             </div>

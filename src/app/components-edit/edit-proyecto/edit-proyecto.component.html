@@ -1,4 +1,81 @@
-<div *ngIf="currentProyecto.id" class="edit-form">
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="editar-proyecto">
+        <div class="edit-form" (ngSubmit)="updateProyecto()" [formGroup]="proyectoForm">
+          <h2 class="text-center mb-4">Editar Proyecto</h2>
+          <div class="mb-4">
+            <label for="nombreProyecto" class="form-label">Nombre del Proyecto</label>
+            <input type="text" 
+            class="form-control" 
+            id="nombreProyecto"
+            name="nombreProyecto" 
+            required formControlName="nombreProyecto"/>
+            <div *ngIf="proyectoForm.get('nombreProyecto')?.touched && proyectoForm.get('nombreProyecto')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+            <div *ngIf="proyectoForm.get('nombreProyecto')?.touched && proyectoForm.get('nombreProyecto')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener mas de {{proyectoForm.get('nombreProyecto')?.errors?.['minlength'].requiredLength}} caracteres</div>
+          </div>
+
+          <div class="mb-4">
+            <label for="descripcion" class="form-label">Aquí puedes colocar una decripcion sobre tu proyecto</label>
+            <textarea name="descripcion" id="descripcion" cols="30" rows="5" class="form-control" required formControlName="descripcion">
+            </textarea>
+            <div *ngIf="proyectoForm.get('descripcion')?.touched && proyectoForm.get('descripcion')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+            <div *ngIf="proyectoForm.get('descripcion')?.touched && proyectoForm.get('descripcion')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener mas de {{proyectoForm.get('descripcion')?.errors?.['minlength'].requiredLength}} caracteres</div>
+          </div>
+
+          
+          <div class="mb-4">
+            <label for="desarrollo" class="form-label">¿Cuánto tiempo te llevo desarrollarlo?</label>
+            <input class="form-control" id="desarrollo" required formControlName="desarrollo" name="desarrollo" />
+            <div *ngIf="proyectoForm.get('desarrollo')?.touched && proyectoForm.get('desarrollo')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+            <div *ngIf="proyectoForm.get('desarrollo')?.touched && proyectoForm.get('desarrollo')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener mas de {{proyectoForm.get('desarrollo')?.errors?.['minlength'].requiredLength}} caracteres</div>
+          </div>
+    
+          <div class="mb-4">
+            <label for="lanzamiento" class="form-label">Ingresa el año del lanzamiento del proyecto</label>
+            <input type="number" class="form-control" id="lanzamiento" required formControlName="lanzamiento" name="lanzamiento" />
+            <div *ngIf="proyectoForm.get('lanzamiento')?.touched && proyectoForm.get('lanzamiento')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+            <div *ngIf="proyectoForm.get('lanzamiento')?.touched && proyectoForm.get('lanzamiento')?.errors?.['patterns']" class="alert alert-danger">Numero Incorrecto</div>
+          </div>
+    
+          <div class="mb-4">
+            <label for="link" class="form-label">Link del proyecto: </label>
+            <input class="form-control" id="link" required formControlName="link" name="link" />
+            <div *ngIf="proyectoForm.get('link')?.touched && proyectoForm.get('link')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+            <div *ngIf="proyectoForm.get('link')?.touched && proyectoForm.get('link')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener mas de {{proyectoForm.get('link')?.errors?.['minlength'].requiredLength}} caracteres</div>
+          </div>
+        
+          <div  class="mb-4">
+            <label >Subir foto de proyecto</label>
+            <input
+              type="file"
+              (change)="uploadImage($event, this.name, this.carpeta)"
+              accept=".jpg, .png, .jpeg"
+            />
+          </div>
+          
+         
+          <div class="imagen mb-4" >
+            <img [src]="imguploadService.url" alt="espera a que cargue" width="200px">
+          </div>
+
+          <button type="submit" class="btn btn-success  mb-2" [disabled]="proyectoForm.invalid"
+          (click)="updateProyecto()">
+            Actualizar
+          </button>
+
+          <div class="mb-4">
+            <a class="btn btn-danger" routerLink="/portfolio/{{numero}}" >
+              Volver a Home
+            </a>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</body>
+<!--<div *ngIf="currentProyecto.id" class="edit-form">
     <h4>Proyecto</h4>
     <form>
       <div class="form-group">
@@ -78,4 +155,4 @@
 
     
 
-  </div>
+  </div>-->

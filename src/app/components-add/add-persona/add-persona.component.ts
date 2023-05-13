@@ -36,11 +36,11 @@ export class AddPersonaComponent implements OnInit {
     const persona = this.personaForm.value;
     this.personaService.createPersona(persona)
       .subscribe(
-        response => {
-          console.log(response);
+        () => {
+          alert('persona creada con éxito');
           this.submitted = true;
-        }, error => {
-          console.log(error);
+        }, () => {
+          alert('error al crear persona');
         });
   }
 
@@ -64,7 +64,7 @@ export class AddPersonaComponent implements OnInit {
     return this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(3)]],
       apellido: ['', [Validators.required, Validators.minLength(3)]],
-      edad: ['', Validators.required],
+      edad: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
       acercade: ['', [Validators.required, Validators.minLength(10)]],
       ocupacion: ['', [Validators.required, Validators.minLength(4)]],
       email: ['', [Validators.required, Validators.email]]

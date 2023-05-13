@@ -1,4 +1,69 @@
 
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="editar-experiencia">
+        <div class="edit-form" (ngSubmit)="updateExperiencia()" [formGroup]="experienciaForm">
+          <h2 class="text-center mb-4">Editar Experiencia</h2>
+          <div class="mb-4">
+            <label for="empresa" class="form-label">Nombre de la Empresa</label>
+            <input type="text" 
+            class="form-control" 
+            id="empresa"
+            name="empresa" 
+            required formControlName="empresa"/>
+            <div *ngIf="experienciaForm.get('empresa')?.touched && experienciaForm.get('empresa')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+            <div *ngIf="experienciaForm.get('empresa')?.touched && experienciaForm.get('empresa')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener mas de {{experienciaForm.get('empresa')?.errors?.['minlength'].requiredLength}} caracteres</div>
+          </div>
+
+          
+          <div class="mb-4">
+            <label for="cargo" class="form-label">Cargo </label>
+            <input class="form-control" id="cargo" required formControlName="cargo" name="cargo" />
+            <div *ngIf="experienciaForm.get('cargo')?.touched && experienciaForm.get('cargo')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+            <div *ngIf="experienciaForm.get('cargo')?.touched && experienciaForm.get('cargo')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener mas de {{experienciaForm.get('cargo')?.errors?.['minlength'].requiredLength}} caracteres</div>
+          </div>
+
+          <div class="mb-4">
+            <label for="descripcion" class="form-label">Aquí puedes colocar una decripcion sobre tu trabajo</label>
+            <textarea name="descripcion" id="descripcion" cols="30" rows="5" class="form-control" required formControlName="descripcion">
+            </textarea>
+            <div *ngIf="experienciaForm.get('descripcion')?.touched && experienciaForm.get('descripcion')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+            <div *ngIf="experienciaForm.get('descripcion')?.touched && experienciaForm.get('descripcion')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener mas de {{experienciaForm.get('descripcion')?.errors?.['minlength'].requiredLength}} caracteres</div>
+          </div>
+    
+          <div class="mb-4">
+            <label for="fecha" class="form-label">Ingresa el año de comienzo de etapa laboral</label>
+            <input type="number" class="form-control" id="fecha" required formControlName="fecha" name="fecha" />
+            <div *ngIf="experienciaForm.get('fecha')?.touched && experienciaForm.get('fecha')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+          </div>
+
+          <div class="mb-4">
+            <label for="fechafin" class="form-label">Ingresa el año de finalizacion de etapa laboral</label>
+            <input type="number" class="form-control" id="fechafin" required formControlName="fechafin" name="fechafin" />
+            <div *ngIf="experienciaForm.get('fechafin')?.touched && experienciaForm.get('fechafin')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+          </div>
+    
+          
+
+          <button type="submit" class="btn btn-success  mb-2" [disabled]="experienciaForm.invalid"
+          (click)="updateExperiencia()">
+            Actualizar
+          </button>
+
+          <div class="mb-4">
+            <a class="btn btn-danger" routerLink="/portfolio/{{currentExperiencia.personaid}}" >
+              Volver a Home
+            </a>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</body>
+<!--
+
 <div *ngIf="currentExperiencia.id" class="edit-form">
     <h4>Experiencia</h4>
     <form>
@@ -69,4 +134,4 @@
     
 
   </div>
-
+-->

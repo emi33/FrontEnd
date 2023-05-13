@@ -36,8 +36,9 @@ export class AddEducacionComponent implements OnInit {
         response => {
           console.log(response);
           this.submitted = true;
-        }, error => {
-          console.log(error);
+          alert('Educacion creada exitosamente');
+        }, () => {
+          alert('error al crear educacion');
         });
   }
   newEducacion(): void {
@@ -56,8 +57,8 @@ export class AddEducacionComponent implements OnInit {
     return this.fb.group({
       institucion: ['', [Validators.required, Validators.minLength(5)]],
       titulo: ['', [Validators.required, Validators.minLength(3)]],
-      fechainicio: ['', Validators.required],
-      fechafin: ['', [Validators.required]],
+      fechainicio: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
+      fechafin: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
       personaid: ['']
     })
   }

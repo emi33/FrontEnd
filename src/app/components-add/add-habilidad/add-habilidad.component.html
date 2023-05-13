@@ -16,7 +16,7 @@
         
                       
               <div class="mb-4">
-                <label for="porcentaje" class="form-label">Ingresa tu porcentaje de aprendizaje(del 1 al 100)</label>
+                <label for="porcentaje" class="form-label">Ingresa tu porcentaje de aprendizaje (del 1 al 100)</label>
                 <input type="number" class="form-control" id="porcentaje" required formControlName="porcentaje" name="porcentaje" />
                 <div *ngIf="skillform.get('porcentaje')?.touched && skillform.get('porcentaje')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
                 <div *ngIf="skillform.get('porcentaje')?.touched && skillform.get('porcentaje')?.errors?.['min']" class="alert alert-danger">El valor no puede ser menor a 0</div>
@@ -36,18 +36,18 @@
                 <div *ngIf="skillform.get('mensual')?.touched && skillform.get('mensual')?.errors?.['pattern']" class="alert alert-danger">Número incorrecto</div>
               </div>
 
-              <button type="submit" class="btn btn-warning  mb-2" [disabled]="skillform.invalid"
+              <button type="submit" class="btn btn-success  mb-2" [disabled]="skillform.invalid"
               (click)="saveHabilidad()">
-                Submit
+                Crear
               </button>
             </div>
         
             <div *ngIf="submitted" class="mb-4">
-              <h4>Creaste una perfil de forma exitosa</h4>
-              <button class="btn btn-success" (click)="newHabilidad()">Crear otro Perfil</button>
+              <h4>Creaste una habilidad de forma exitosa</h4>
+              <button class="btn btn-success" (click)="newHabilidad()">Crear otra Habilidad</button>
             </div>
             <div class="mb-4">
-              <a class="btn btn-warning" routerLink="/portfolio/{{numero}}" >
+              <a class="btn btn-danger" routerLink="/portfolio/{{numero}}" >
                 Volver a Home
               </a>
             </div>

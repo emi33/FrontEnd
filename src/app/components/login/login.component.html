@@ -10,34 +10,34 @@
         <div class="card-body py-5 px-md-5">
           <form [formGroup]="log">
             <div class="form-outline mb-4 formGroup">
-              <input type="text" class="formControl" placeholder="Username" formControlName="userName" #userName required />
-              <label class="form-label" for="form2Example1">Email address</label>
+              <input type="text" class="formControl" placeholder="ingresa tu email" formControlName="userName" #userName required />
+              <label class="form-label" for="form2Example1">Email</label>
               <div *ngIf="log.get('userName')?.invalid && (log.get('userName')?.dirty || log.get('userName')?.touched)" style="color:red">
-                Error usuario
+                Error al ingresar email
               </div>
             </div>
             
             <div class="form-outline mb-4 formGroup">
-              <input type="password" class="formControl" placeholder="Password" formControlName="password" #userPassword required />
-              <label class="form-label" for="form2Example2">Password</label>
+              <input type="password" class="formControl" placeholder="ingresa tu contraseña" formControlName="password" #userPassword required />
+              <label class="form-label" for="form2Example2">Contraseña</label>
               <div *ngIf="log.get('password')?.invalid && (log.get('password')?.dirty || log.get('password')?.touched)" style="color:red">
-                Error contraseña
+                Error contraseña muy corta
               </div>
             </div>
             <div class="row mb-4">
               <div class="forgotPassword">
-                <span routerLink="/olvidar-password">¿Olvidaste tu contraseña?</span>
+                <button class="btn btn-link" routerLink="/olvidar-password">¿Olvidaste tu contraseña?</button>
               </div>
             </div>
             <div class="formGroup">
-              <input type="button" class="btn btn-primary" value="Log in" [disabled]="log.invalid"
+              <input type="button" class="btn btn-primary" value="Ingresar" [disabled]="log.invalid"
                 (click)="authService.SignIn(userName.value, userPassword.value)">
             </div>
-            <div class="redirectToLogin">
-              <span>¿No tienes una cuenta?<span class="redirect" routerLink="/register">Registrarse</span></span>
+            <div class="redirectToLogin mt-1">
+              ¿No tienes una cuenta?<button class="redirect btn btn-link" routerLink="/register">Registrarse</button>
             </div>
             <div class="redirectToLogin">
-              <span class="redirect" routerLink="/portfolio">Home</span>
+              <button class="redirect btn btn-link" routerLink="/portfolio">Home</button>
             </div>
           </form>
         </div>

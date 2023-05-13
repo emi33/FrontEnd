@@ -19,19 +19,24 @@
           </div>
           <div class="row text-center mt-4">
             <div class="col-6 border-right">
-              <div class="h4 font-weight-bold mb-0">{{habilidades.semana}} horas</div><span class="small text-gray">Última semana</span>
+              <div class="h4 font-weight-bold mb-1">{{habilidades.semana}} horas</div><span class="small text-gray">Última semana</span>
             </div>
             <div class="col-6">
-              <div class="h4 font-weight-bold mb-0">{{habilidades.mensual}} horas</div><span class="small text-gray">Último mes</span>
+              <div class="h4 font-weight-bold mb-1">{{habilidades.mensual}} horas</div><span class="small text-gray">Último mes</span>
             </div>
           </div>
-          <a class="btn btn-warning" style="margin-right: 10px;" routerLink="/habilidad/{{habilidades.id}}" >
-            Editar
-          </a>
-          <button type="submit" (click)="deleteHabilidad(habilidades.id)" class="btn btn-success">Borrar</button>
-        </div>
+          <div *ngIf="authService.isLoggedIn">
+            <a class="btn btn-warning" style="margin-right: 5px;" routerLink="/habilidad/{{habilidades.id}}" >
+              Editar
+            </a>
+            <button type="submit" (click)="deleteHabilidad(habilidades.id)" class="btn btn-danger">Borrar</button>
+          </div>
+          </div>
+          
       </div>
-      <div class="text-center">   <button class="btn btn-warning"><a routerLink="/add?habilidad/{{id}}">Crear Habilidad</a></button></div>
+      <div class="text-center" *ngIf="authService.isLoggedIn">   
+        <button class="btn btn-primary" routerLink="/add?habilidad/{{id}}">Crear Habilidad <i class="bi bi-plus"></i></button>
+      </div>
    
     </div>
   </div>

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Persona } from 'src/app/entities/persona';
 import { PersonaService } from 'src/app/services/persona.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 
 @Component({
@@ -26,6 +27,7 @@ export class AcercaDeComponent implements OnInit{
   
   constructor(
     private personaService: PersonaService,
+    public authService: AuthService,
     private route: ActivatedRoute,
     private router: Router) { }
 

@@ -19,16 +19,18 @@ import { AddProyectoComponent } from './components-add/add-proyecto/add-proyecto
 import { EditProyectoComponent } from './components-edit/edit-proyecto/edit-proyecto.component';
 import { AddSocialComponent } from './components-add/add-social/add-social.component';
 import { EditSocialComponent } from './components-edit/edit-social/edit-social.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
   {path: 'portfolio', component: PortfolioComponent},
-  {path: 'portfolio/:id', component: PortfolioComponent, canActivate: [AuthGuard] },
+  {path: 'portfolio/:id', component: PortfolioComponent },
   {path:'login', component: LoginComponent},
   {path: '', redirectTo:'portfolio', pathMatch:'full'},
+
   {path:'register', component: RegisterComponent},
   {path:'olvidar-password', component: OlvidarPasswordComponent},
   {path: 'verificarcorreo', component: VerificarcorreoComponent},
-  {path: 'personas', component: PersonasComponent},
+  {path: 'personas', component: PersonasComponent, canActivate: [AuthGuard]},
   {path: 'persona/:id', component: EditPersonaComponent, canActivate: [AuthGuard]},
   {path: 'add?persona/:id', component: AddPersonaComponent, canActivate: [AuthGuard]},
   {path: 'experiencia/:id', component: EditExperienciaComponent, canActivate: [AuthGuard]},
@@ -40,7 +42,8 @@ const routes: Routes = [
   {path: 'add?proyecto/:personaid', component: AddProyectoComponent, canActivate: [AuthGuard]},
   {path: 'proyecto/:id', component: EditProyectoComponent, canActivate: [AuthGuard]},
   {path: 'add?social/:personaid', component: AddSocialComponent, canActivate: [AuthGuard]},
-  {path: 'contacto/:id', component: EditSocialComponent, canActivate: [AuthGuard]}
+  {path: 'contacto/:id', component: EditSocialComponent, canActivate: [AuthGuard]},
+  { path: '**', pathMatch: 'full', component: PagenotfoundComponent },
 ];
 
 @NgModule({

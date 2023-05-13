@@ -33,16 +33,18 @@
                 <label for="fecha" class="form-label">Ingresa el año de comienzo de trabajo</label>
                 <input type="number" class="form-control" id="fecha" required formControlName="fecha" name="fecha" />
                 <div *ngIf="experienciaForm.get('fecha')?.touched && experienciaForm.get('fecha')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+                <div *ngIf="experienciaForm.get('fecha')?.touched && experienciaForm.get('fecha')?.errors?.['pattern']" class="alert alert-danger">Número incorrecto</div>
               </div>
 
               <div class="mb-4">
                 <label for="fechafin" class="form-label">Ingresa el año de Finalización del trabajo</label>
                 <input type="number" class="form-control" id="fechafin" required formControlName="fechafin" name="fechafin" />
                 <div *ngIf="experienciaForm.get('fechafin')?.touched && experienciaForm.get('fechafin')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+                <div *ngIf="experienciaForm.get('fechafin')?.touched && experienciaForm.get('fechafin')?.errors?.['pattern']" class="alert alert-danger">Número incorrecto</div>
               </div>
 
               
-              <button type="submit" class="btn btn-warning" [disabled]="experienciaForm.invalid"
+              <button type="submit" class="btn btn-success" [disabled]="experienciaForm.invalid"
               (click)="saveExperiencia()">
                 Crear
               </button>
@@ -57,7 +59,7 @@
             </div>
             <br>
           <div class="mb-4">
-            <a class="btn btn-warning" routerLink="/portfolio/{{numero}}" >
+            <a class="btn btn-danger" routerLink="/portfolio/{{numero}}" >
               Volver a Home
             </a>
           </div>

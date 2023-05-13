@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Contacto } from 'src/app/entities/contacto';
+import { Persona } from 'src/app/entities/persona';
 import { ContactoService } from 'src/app/services/contacto.service';
+import { PersonaService } from 'src/app/services/persona.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-contactos',
@@ -8,17 +11,35 @@ import { ContactoService } from 'src/app/services/contacto.service';
   styleUrls: ['./contactos.component.css']
 })
 export class ContactosComponent implements OnInit{
+  currentPersona: Persona = {
+    id:0,
+    nombre: '',
+    apellido: '',
+    edad: 0,
+    acercade:'',
+    ocupacion:'',
+    email:'',
+    imagen:'',
+    banner:'',
+  };
   socials!: Contacto[];
   @Input() id: number=1;
 
-  constructor(private contactoService: ContactoService){  }
+  constructor(private contactoService: ContactoService, private personaService: PersonaService, public authService: AuthService){  }
   ngOnInit(): void {
+    this.personaService.getPersona(this.id).subscribe(
+      {
+        next: (data) => {
+          this.currentPersona = data;
+          console.log(data);
+        },
+        error: (e) => console.error(e)
+      });
+    
     this.retrieveContacto(this.id);
   }
 
-  contactos(red:string){
-    return "red"
-  }
+  
   retrieveContacto(personaid: number): void {
     this.contactoService.getContactoList(personaid)
       .subscribe({
@@ -32,11 +53,11 @@ export class ContactosComponent implements OnInit{
   deleteContacto(id:number){
     if(id != undefined){
       this.contactoService.deleteContacto(id).subscribe(
-        data =>{
-          alert("Contacto eliminado correctamente " + data)
+        () =>{
+          alert("Contacto eliminado correctamente")
           this.retrieveContacto(this.id);
-        }, err =>{
-          alert("no se pudo eliminar el contacto " + err)
+        }, () =>{
+          alert("no se pudo eliminar el contacto ")
         })
     }}
 }

@@ -27,10 +27,10 @@
                         <td>
                             {{estudios.fechafin}}
                         </td>
-                      <td>
-                        <a class="btn btn-warning mb-2" routerLink="/educacion/{{estudios.id}}"><i
+                      <td *ngIf="authService.isLoggedIn">
+                        <a class="btn btn-warning " style="margin-right: 5px;"  routerLink="/educacion/{{estudios.id}}"><i
                             class="bi bi-pencil"></i></a>
-                            <button type="submit" (click)="deleteEducacion(estudios.id)" class="btn btn-success"><i
+                            <button type="submit" (click)="deleteEducacion(estudios.id)" class="btn btn-danger"><i
                                 class="bi bi-trash"></i></button>
                       </td>                                               
                     </tr>
@@ -39,6 +39,6 @@
         </div>
     </div>
     <br>
-    <div class="text-center"><button class="btn btn-warning"><a routerLink="/add?educacion/{{id}}">Crear
-        Educacion </a><i class="bi bi-plus"></i></button></div>
+    <div class="text-center" *ngIf="authService.isLoggedIn"><button class="btn btn-primary" routerLink="/add?educacion/{{id}}">Crear
+        Educacion <i class="bi bi-plus"></i></button></div>
 </div>

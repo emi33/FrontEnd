@@ -31,6 +31,7 @@
                 <label for="edad" class="form-label">Ingresa tu edad</label>
                 <input type="number" class="form-control" id="edad" required formControlName="edad" name="edad" />
                 <div *ngIf="personaForm.get('edad')?.touched && personaForm.get('edad')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+                <div *ngIf="personaForm.get('edad')?.touched && personaForm.get('edad')?.errors?.['pattern']" class="alert alert-danger">Número incorrecto</div>
               </div>
         
               <div class="mb-4">
@@ -55,7 +56,7 @@
               </div>
             
              
-              <button type="submit" class="btn btn-warning  mb-2" [disabled]="personaForm.invalid"
+              <button type="submit" class="btn btn-success  mb-2" [disabled]="personaForm.invalid"
               (click)="savePersona()">
                 Submit
               </button>

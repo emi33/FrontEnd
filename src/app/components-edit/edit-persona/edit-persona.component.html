@@ -77,13 +77,13 @@
             <img [src]="imguploadService.url" alt="espera a que cargue" width="200px">
           </div>
 
-          <button type="submit" class="btn btn-warning  mb-2" [disabled]="personaForm.invalid"
+          <button type="submit" class="btn btn-success  mb-2" [disabled]="personaForm.invalid"
           (click)="updatePersona()">
             Actualizar
           </button>
 
           <div class="mb-4">
-            <a class="btn btn-warning" routerLink="/portfolio/{{numero}}" >
+            <a class="btn btn-danger" routerLink="/portfolio/{{numero}}" >
               Volver a Home
             </a>
           </div>

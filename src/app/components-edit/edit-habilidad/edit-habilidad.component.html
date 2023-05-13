@@ -1,4 +1,61 @@
-<div *ngIf="currentHabilidad.id" class="edit-form">
+
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="editar-habilidad">
+        <div class="edit-form" (ngSubmit)="updateHabilidad()" [formGroup]="habilidadForm">
+          <h2 class="text-center mb-4">Editar Habilidad</h2>
+          <div class="mb-4">
+            <label for="habilidad" class="form-label">Nombre de la Habilidad</label>
+            <input type="text" 
+            class="form-control" 
+            id="habilidad"
+            name="habilidad" 
+            required formControlName="habilidad"/>
+            <div *ngIf="habilidadForm.get('habilidad')?.touched && habilidadForm.get('habilidad')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+            <div *ngIf="habilidadForm.get('habilidad')?.touched && habilidadForm.get('habilidad')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener mas de {{habilidadForm.get('habilidad')?.errors?.['minlength'].requiredLength}} caracteres</div>
+          </div>
+
+          <div class="mb-4">
+            <label for="porcentaje" class="form-label">Ingresa tu porcentaje de aprendizaje(del 1 al 100)</label>
+            <input type="number" class="form-control" id="porcentaje" required formControlName="porcentaje" name="porcentaje" />
+            <div *ngIf="habilidadForm.get('porcentaje')?.touched && habilidadForm.get('porcentaje')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+            <div *ngIf="habilidadForm.get('porcentaje')?.touched && habilidadForm.get('porcentaje')?.errors?.['min']" class="alert alert-danger">El valor no puede ser menor a 0</div>
+            <div *ngIf="habilidadForm.get('porcentaje')?.touched && habilidadForm.get('porcentaje')?.errors?.['max']" class="alert alert-danger">El valor no puede ser mayor a 100</div>
+            <div *ngIf="habilidadForm.get('porcentaje')?.touched && habilidadForm.get('porcentaje')?.errors?.['pattern']" class="alert alert-danger">Número incorrecto</div>
+          </div>
+          <div class="mb-4">
+            <label for="semana" class="form-label">Ingresa las horas empleadas en esta habilidad la ultima semana</label>
+            <input type="number" class="form-control" id="edad" required formControlName="semana" name="semana" />
+            <div *ngIf="habilidadForm.get('semana')?.touched && habilidadForm.get('semana')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+            <div *ngIf="habilidadForm.get('semana')?.touched && habilidadForm.get('semana')?.errors?.['pattern']" class="alert alert-danger">Número incorrecto</div>
+          </div>
+          <div class="mb-4">
+            <label for="mensual" class="form-label">Ingresa las horas empleadas en esta habilidad el último mes</label>
+            <input type="number" class="form-control" id="mensual" required formControlName="mensual" name="mensual" />
+            <div *ngIf="habilidadForm.get('mensual')?.touched && habilidadForm.get('mensual')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+            <div *ngIf="habilidadForm.get('mensual')?.touched && habilidadForm.get('mensual')?.errors?.['pattern']" class="alert alert-danger">Número incorrecto</div>
+          </div>
+          
+
+          <button type="submit" class="btn btn-success  mb-2" [disabled]="habilidadForm.invalid"
+          (click)="updateHabilidad()">
+            Actualizar
+          </button>
+
+          <div class="mb-4">
+            <a class="btn btn-danger" routerLink="/portfolio/{{currentHabilidad.personaid}}" >
+              Volver a Home
+            </a>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</body>
+<!--<div *ngIf="currentHabilidad.id" class="edit-form">
     <h4>HABILIDAD</h4>
     <form>
       <div class="form-group">
@@ -56,5 +113,5 @@
 
     
 
-  </div>
+  </div>-->
 

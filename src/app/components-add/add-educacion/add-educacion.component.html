@@ -27,15 +27,17 @@
                 <label for="fechainicio" class="form-label">Ingresa el año de comienzo de estudios</label>
                 <input type="number" class="form-control" id="fechainicio" required formControlName="fechainicio" name="fechainicio" />
                 <div *ngIf="educacionForm.get('fechainicio')?.touched && educacionForm.get('fechainicio')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+                <div *ngIf="educacionForm.get('fechainicio')?.touched && educacionForm.get('fechainicio')?.errors?.['pattern']" class="alert alert-danger">Número incorrecto</div>
               </div>
 
               <div class="mb-4">
                 <label for="fechafin" class="form-label">Ingresa el año de Finalización de estudios</label>
                 <input type="number" class="form-control" id="fechafin" required formControlName="fechafin" name="fechafin" />
                 <div *ngIf="educacionForm.get('fechafin')?.touched && educacionForm.get('fechafin')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+                <div *ngIf="educacionForm.get('fechafin')?.touched && educacionForm.get('fechafin')?.errors?.['pattern']" class="alert alert-danger">Número incorrecto</div>
               </div>
 
-              <button type="submit" class="btn btn-warning  mb-2" [disabled]="educacionForm.invalid"
+              <button type="submit" class="btn btn-success  mb-2" [disabled]="educacionForm.invalid"
               (click)="saveEducacion()">
                 Submit
               </button>
@@ -48,7 +50,7 @@
             </div>
             <br>
           <div class="mb-4">
-            <a class="btn btn-warning" routerLink="/portfolio/{{numero}}" >
+            <a class="btn btn-danger" routerLink="/portfolio/{{numero}}" >
               Volver a Home
             </a>
           </div>

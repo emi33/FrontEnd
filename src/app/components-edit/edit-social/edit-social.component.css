@@ -1,0 +1,34 @@
+
+.editar-social{
+	padding: 50px 0;
+    width: 450px; 
+    margin:auto;
+}
+.editar-social .edit-form{
+    background-color: #ffffff;
+    max-width: 600px;
+    margin: auto;
+    padding: 50px 70px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+ 
+}
+
+@media (max-width: 576px) {
+    .editar-social{
+       
+        width: 400px; 
+    
+    }
+    .editar-social .edit-form{
+        padding: 50px 20px;
+    }
+
+    
+}
+body {
+    background-color: #cdcdcd;
+  
+  }

@@ -12,26 +12,25 @@
                 <div class="col-sm-7 col-md-8 border-right">
                   <div class="h4 font-weight-bold mb-0">{{proyectos.descripcion}}</div><span class="small text-gray">Deploy: {{proyectos.lanzamiento}}</span>
                   <div class="h6 font-weight-bold mb-0">Tiempo de desarrollo: {{proyectos.desarrollo}}</div>
-                  <div class="h6 font-weight-bold mb-0"><a href="{{proyectos.link}}" target="_blank">{{proyectos.link}}</a></div>
+                  <div class="h6 font-weight-bold mb-2"><a href="{{proyectos.link}}" target="_blank">{{proyectos.link}}</a></div>
                 </div>
                 <div class="col-sm-5 col-md-4	 ">
                   <div class="font-weight-bold mb-0"><a href="{{proyectos.img}}" class="image" target="_blank"><img alt="proyectotal" src="{{proyectos.img}}" decoding="async" width="300" height="202" srcset="{{proyectos.img}}" data-file-width="2199" data-file-height="1478"></a></div>
                   
                 </div>
               </div>
-
+              <div class="mb-4" *ngIf="authService.isLoggedIn">
+                <a class="btn btn-warning" style="margin-right: 5px;" routerLink="/proyecto/{{proyectos.id}}" >
+                  Editar
+                </a>
+                <button type="submit" (click)="deleteProyecto(proyectos.id)" class="btn btn-danger">Borrar</button>
+              </div>        
+            </div>         
             </div>
-            <a class="btn btn-warning" routerLink="/proyecto/{{proyectos.id}}" >
-              Edit
-            </a>
-            <button type="submit" (click)="deleteProyecto(proyectos.id)" class="btn btn-success">Delete</button>
-          </div>
-          
-       
         </div>
         <br>
-        <div class="text-center">
-          <button class="btn btn-warning"><a routerLink="/add?proyecto/{{id}}">Crear Proyecto</a></button>
+        <div class="text-center" *ngIf="authService.isLoggedIn">
+          <button class="btn btn-primary" routerLink="/add?proyecto/{{id}}">Crear Proyecto <i class="bi bi-plus"></i></button>
         </div>
        
       </div>

@@ -1,39 +1,39 @@
-<div *ngIf="currentContacto.id" class="edit-form">
-    <h4>Proyecto</h4>
-    <form>
-      <div class="form-group">
-        <label for="social">Nombre de Red Social</label>
-        <input
-          type="text"
-          class="form-control"
-          id="social"
-          [(ngModel)]="currentContacto.social"
-          name="social"
-        />
-      </div>
-      <div class="form-group">
-        <label for="user">link</label>
-        <input
-          type="text"
-          class="form-control"
-          id="user"
-          [(ngModel)]="currentContacto.user"
-          name="user"
-        />
-      </div>
-
-          <div>
-            <p>{{currentContacto.personaid}}</p>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="editar-social">
+        <div class="edit-form" (ngSubmit)="updateContacto()" [formGroup]="socialForm">
+          <h2 class="text-center mb-4">Editar Contacto</h2>
+          <div class="mb-4">
+            <label class="mr-sm-2 mb-2" for="social">Nombre de la red social: </label>
+            <select class="custom-select mr-sm-2" class="form-control" id="social" name="social" required
+              formControlName="social">
+              <option *ngFor="let option of opciones" [value]="option">{{option}}</option>
+            </select>
+            <div *ngIf="socialForm.get('social')?.touched && socialForm.get('social')?.errors?.['required']"
+              class="alert alert-danger">Este campo es requerido</div>
           </div>
-        <button
-      type="submit"
-      class="btn btn-warning  mb-2"
-      (click)="updateContacto()"
-    >
-      Update
-    </button>
-    </form>
 
-    
+          <div class="mb-4">
+            <label for="user" class="form-label">Link de tu perfil</label>
+            <input class="form-control" id="user" required formControlName="user" name="user" />
+            <div *ngIf="socialForm.get('user')?.touched && socialForm.get('user')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+            <div *ngIf="socialForm.get('user')?.touched && socialForm.get('user')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener mas de {{socialForm.get('user')?.errors?.['minlength'].requiredLength}} caracteres</div>
+          </div>
 
+          <button type="submit" class="btn btn-success  mb-2" [disabled]="socialForm.invalid"
+          (click)="updateContacto()">
+            Actualizar
+          </button>
+
+          <div class="mb-4">
+            <a class="btn btn-danger" routerLink="/portfolio/{{currentContacto.personaid}}" >
+              Volver a Home
+            </a>
+          </div>
+        </div>
+        
+      </div>
+    </div>
   </div>
+</body>

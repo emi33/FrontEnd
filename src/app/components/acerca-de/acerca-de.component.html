@@ -7,36 +7,23 @@
                         <img src="{{currentPersona.imagen}}" alt="perfil">
                     </div>
                     <div class="col-md-9 col-sm-12">
-                        <h2 class=" font-weight-bold text-center">{{ currentPersona.nombre }} {{ currentPersona.apellido}}</h2>
-                        <h3 class=" font-weight-bold text-center">{{ currentPersona.edad }} Años</h3>
-                        <h4 class=" font-weight-bold text-center">{{ currentPersona.ocupacion }} </h4>
+                        <h2 class=" font-weight-bold text-color">{{ currentPersona.nombre }} {{ currentPersona.apellido}}</h2>
+                        <h3 class=" font-weight-bold">{{ currentPersona.edad }} Años  </h3>
+                        <h4 class=" font-weight-bold ">{{ currentPersona.ocupacion }} </h4>
                     </div>
                 </div>
-
-
-
-<br>
-                <div class="row  mt-6">
-                    <div class="col-md-3 col-sm-12">
+                <div class="row  mt-6">  
+                    <div class="text-center col-md-12 col-sm-12">
+                        <h3>Sobre mi:</h3>
+                        <div class="h4 font-weight-bold mb-0">{{currentPersona.acercade}}</div>
+                    </div>
+                    <div class="col-md-12 col-sm-12" *ngIf="authService.isLoggedIn">
                         <a class="btn btn-warning" routerLink="/persona/{{ currentPersona.id }}">
                             Editar
                         </a>
                     </div>
-                    <div class="text-center col-md-9 col-sm-12">
-                        <h3>Sobre mi:</h3>
-                        <div class="h4 font-weight-bold mb-0">{{currentPersona.acercade}}</div>
-                    </div>
-
                 </div>
-
             </div>
-
-
-
-        </div>
-
-
-        
+        </div>   
     </div>
-
 </section>

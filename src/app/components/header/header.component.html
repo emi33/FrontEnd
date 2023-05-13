@@ -2,30 +2,24 @@
     <nav class="navbar navbar-dark bg-info">
         <div class="container-fluid">
             <a href="#" class="navbar-brand"><img src="../../../assets/APLogo-20-20.png" alt="logoarg"></a>
-            <button *ngIf="!authService.isLoggedIn"><a routerLink="/login"><button
-                        class="btn btn-primary">Ingresar</button> </a></button>
+            <div *ngIf="!authService.isLoggedIn">
+                <button class="btn btn-primary" routerLink="/login">Ingresar</button></div>
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 *ngIf="authService.isLoggedIn">
-                <span>Mi Cuenta</span></button>
-
+                <i class="bi bi-person"></i> Mi Cuenta</button>
             <div class="collapse navbar-collapse menu" id="navbarCollapse">
                 <div class="navbar-nav">
-               
-<div class="right-aligned"><button class="btn btn-warning"><a routerLink="/personas">Ver Perfiles</a></button></div>
-<div class=" right-aligned"> <button class="btn btn-warning"><a routerLink="/add?persona/{{numero}}">Crear Perfil</a></button></div>
-<div class=" right-aligned"> <input type="button" class="btn btn-primary" value="Sign Out" (click)="authService.SignOut()"></div>
-                            
-                        
-                        
-                       
-                
-                   
-                    
+                    <div class="right-aligned">
+                        <button class="btn btn-light" routerLink="/personas">Ver Perfiles</button>
+                    </div>
+                    <div class="right-aligned">
+                        <button class="btn btn-light" routerLink="/add?persona/{{numero}}">Crear Perfil</button>
+                    </div>
+                    <div class="right-aligned"> 
+                        <input type="button" class="btn btn-danger" value="Sign Out" (click)="authService.SignOut()">
+                    </div>
                 </div>
-
             </div>
-
-
         </div>
     </nav>
 </header>

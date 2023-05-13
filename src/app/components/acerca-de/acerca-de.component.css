@@ -1,12 +1,10 @@
 #acercade {
-    
     padding: 10px;
     margin: 10px;
-
   }
   img{
-    height: 100px;
-    width: 100px;
+    height: 140px;
+    width: 140px;
     object-fit: cover; 
    border-radius: 20%;
    background-color: #276fab;
@@ -18,15 +16,12 @@
     background: #0eff0e;
     background: -webkit-linear-gradient(to right, #8b22a5, #5a8a0d);
     background: linear-gradient(to right, #127dda, #af3735);
-    
   }
-  
   .rounded-lg {
     border-radius: 1rem;
   }
-  
-  .text-gray {
-    color: #000000;
+  .text-color {
+    color: #ddb91b;
   }
 
  

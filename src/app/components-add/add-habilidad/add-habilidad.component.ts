@@ -36,11 +36,11 @@ export class AddHabilidadComponent implements OnInit{
     const skill = this.skillform.value;
     this.habilidadService.createHabilidad(skill)
       .subscribe(
-        response => {
-          console.log(response);
+        () => {
+          alert('Habilidad creada de forma exitosa');
           this.submitted = true;
-        }, error => {
-          console.log(error);
+        }, () => {
+          alert('error al crear habilidad');
         });
   }
 

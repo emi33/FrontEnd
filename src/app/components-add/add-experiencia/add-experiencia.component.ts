@@ -29,10 +29,10 @@ saveExperiencia():void {
 
   this.experienciaService.createExperiencia( this.experiencia ).subscribe({
     next: ()=> {
-      console.log("experiencia creada satisfactoriamente");
+      alert("experiencia creada satisfactoriamente");
       this.submitted=true;
-    }, error: error => {
-      console.log(error);
+    }, error: () => {
+      alert('error al crear experiencia');
     }
     })
  ;
@@ -50,8 +50,8 @@ initForm(): FormGroup {
     empresa: ['', [Validators.required, Validators.minLength(5)]],
     cargo: ['', [Validators.required, Validators.minLength(3)]],
     descripcion: ['', [Validators.required, Validators.minLength(10)]],
-    fecha: ['', Validators.required],
-    fechafin: ['', Validators.required],
+    fecha: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
+    fechafin: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
     personaid: [this.numero]
   })
 }

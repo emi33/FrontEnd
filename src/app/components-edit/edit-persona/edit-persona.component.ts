@@ -77,10 +77,12 @@ export class EditPersonaComponent implements OnInit {
       this.personaService.updatePersona(this.numero, this.persona)
         .subscribe(
           () => {
-            console.log('exito: ' + this.persona);
+
+            console.log( this.persona);
+            alert('exito')
             this.router.navigate(['/portfolio/' + this.numero]);
-          }, err => {
-            alert("Error al cargar datos " + err);
+          }, () => {
+            alert("Error al cargar datos " );
           }
         );
     } else{

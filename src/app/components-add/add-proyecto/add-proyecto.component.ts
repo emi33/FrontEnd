@@ -38,11 +38,11 @@ export class AddProyectoComponent implements OnInit{
     const project = this.projectForm.value;
     this.proyectoService.createProyecto(project)
       .subscribe(
-        response => {
-          console.log(response);
+        () => {
+          alert('exito al crear nuevo proyecto');
           this.submitted = true;
-        }, error => {
-          console.log(error);
+        }, () => {
+          alert('error');
         });
   }
 

@@ -35,11 +35,11 @@ export class AddSocialComponent implements OnInit{
     const socials = this.socialForm.value;
     this.socialService.createContacto(socials)
       .subscribe(
-        response => {
-          console.log(response);
+        () => {
+          console.log('exito al crear nueva red social');
           this.submitted = true;
-        }, error => {
-          console.log(error);
+        }, () => {
+          alert('error al crear red social');
         });
   }
 

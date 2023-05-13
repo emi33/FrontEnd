@@ -3,46 +3,50 @@
     <div class="row">
       <div class="registro-social">
         <div class="edit-form" (ngSubmit)="saveRedSocial()" [formGroup]="socialForm">
-          
-            <div *ngIf="!submitted" class="mb-4">
-                          
-              <h2 class="text-center mb-4">Comparte una nueva red social</h2>
-              <div class="mb-4">
-                <label class="mr-sm-2 mb-2" for="social">Preference: </label>
-<select class="custom-select mr-sm-2" class="form-control" id="social" name="social" required formControlName="social">
-  <option *ngFor="let option of opciones" [value]="option">{{option}}</option>
 
-</select>
-<div *ngIf="socialForm.get('social')?.touched && socialForm.get('social')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
-              </div>
+          <div *ngIf="!submitted" class="mb-4">
 
-              <div class="mb-4">
-                <label for="user" class="form-label">Link de tu perfil</label>
-                <input type="text" class="form-control" id="user" name="user" required formControlName="user"/>
-                <div *ngIf="socialForm.get('user')?.touched && socialForm.get('user')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
-                <div *ngIf="socialForm.get('descripcion')?.touched && socialForm.get('user')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener mas de {{socialForm.get('user')?.errors?.['minlength'].requiredLength}} caracteres</div>
-              </div>
-
-              
-              <button type="submit" class="btn btn-warning  mb-2" [disabled]="socialForm.invalid"
-              (click)="saveRedSocial()">
-                Crear
-              </button>
-            </div>
-        
-            <div *ngIf="submitted" class="mb-4">
-              <h4>Creaste un contacto de forma exitosa</h4>
-              <button class="btn btn-success" (click)="newRedSocial()">Crear otro Contacto</button>
-            </div>
+            <h2 class="text-center mb-4">Crea un nuevo Contacto</h2>
             <div class="mb-4">
-              <a class="btn btn-warning" routerLink="/portfolio/{{numero}}" >
-                Volver a Home
-              </a>
+              <label class="mr-sm-2 mb-2" for="social">Elige la red social que deseas compartir: </label>
+              <select class="custom-select mr-sm-2" class="form-control" id="social" name="social" required
+                formControlName="social">
+                <option *ngFor="let option of opciones" [value]="option">{{option}}</option>
+              </select>
+              <div *ngIf="socialForm.get('social')?.touched && socialForm.get('social')?.errors?.['required']"
+                class="alert alert-danger">Este campo es requerido</div>
             </div>
+
+            <div class="mb-4">
+              <label for="user" class="form-label">Link de tu perfil</label>
+              <input type="text" class="form-control" id="user" name="user" required formControlName="user" />
+              <div *ngIf="socialForm.get('user')?.touched && socialForm.get('user')?.errors?.['required']"
+                class="alert alert-danger">Este campo es requerido</div>
+              <div *ngIf="socialForm.get('descripcion')?.touched && socialForm.get('user')?.errors?.['minlength']"
+                class="alert alert-danger">Este campo debe tener mas de
+                {{socialForm.get('user')?.errors?.['minlength'].requiredLength}} caracteres</div>
+            </div>
+
+
+            <button type="submit" class="btn btn-success  mb-2" [disabled]="socialForm.invalid"
+              (click)="saveRedSocial()">
+              Crear
+            </button>
           </div>
-      </div> 
+
+          <div *ngIf="submitted" class="mb-4">
+            <h4>Creaste un contacto de forma exitosa</h4>
+            <button class="btn btn-success" (click)="newRedSocial()">Crear otro Contacto</button>
+          </div>
+          <div class="mb-4">
+            <a class="btn btn-danger" routerLink="/portfolio/{{numero}}">
+              Volver a Home
+            </a>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
 </body>
 <!--<div style="width: 400px; margin: auto;">
     <div class="submit-form">
