@@ -30,6 +30,11 @@ Desarrollado por Emiliano Choque
     2- Una vez cargado vamos a la pagina del frontend: https://portfolio-maker-98538.web.app/. Debe mostrar un portfolio ya prediseñado
     3- Si la pagina cargó, y muestra informacion toda la informacion de la base de datos, listo, todo funciona.
 
+# Cuenta de invitado
+
+    usuario: usuario@portfolio.com  
+    contraseña: invitado
+
 # Como usar el proyecto
 
 ## Pasos para crear un portfolio
@@ -57,6 +62,8 @@ Desarrollado por Emiliano Choque
 
 
 # ERRORES
+
+    Al editar una tabla persona o un proyecto debemos subir las imagenes, ya que si no, no se realiza la peticion put.
     La pagina no deberia mostrar ningun error si funciona bien, ni siquiera en la consola. Pero de haber algun error, lo ideal seria chequear que el proyecto este ejecutado correctamente.
 
 # Algunos Problemas a solucionar

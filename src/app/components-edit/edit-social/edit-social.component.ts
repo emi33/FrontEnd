@@ -51,12 +51,12 @@ export class EditSocialComponent implements OnInit{
       this.contactoService.updateContacto(this.currentContacto.personaid, this.currentContacto.id, social)
         .subscribe(
           () => {
-            alert('exito: ' );
+            alert('exito al editar contacto ' );
             console.log(this.currentContacto);
             
             this.router.navigate(['/portfolio/' + this.currentContacto.personaid]);
-          }, err => {
-            alert("Error al cargar datos " + err);
+          }, () => {
+            alert("Error al cargar contacto ");
           }
         );
     } else{
