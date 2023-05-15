@@ -53,7 +53,7 @@ Desarrollado por Emiliano Choque
    Para asegurarse que la base de datos reciba y ejecute apropiadamente cada peticion, el cliente podra ver un mensaje de alerta que muestre el estado de la ejecucion: 'Exito' si la peticion se cumplio o 'Error' si fallo en alguna parte. ES IMPORTANTE QUE AL HACER UN REQUEST ESPEREMOS LA RESPUESTA.
 
    5-VER NUESTRO DISEÑO (https://portfolio-maker-98538.web.app/portfolio)
-   Si queremos ver como quedo
+   
 
 
 # ERRORES
