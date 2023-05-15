@@ -33,15 +33,17 @@
           </div>
     
           <div class="mb-4">
-            <label for="fecha" class="form-label">Ingresa el año de comienzo de etapa laboral</label>
+            <label for="fecha" class="form-label">Ingresa el año de comienzo de trabajo</label>
             <input type="number" class="form-control" id="fecha" required formControlName="fecha" name="fecha" />
             <div *ngIf="experienciaForm.get('fecha')?.touched && experienciaForm.get('fecha')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+            <div *ngIf="experienciaForm.get('fecha')?.touched && experienciaForm.get('fecha')?.errors?.['pattern']" class="alert alert-danger">Número incorrecto</div>
           </div>
 
           <div class="mb-4">
-            <label for="fechafin" class="form-label">Ingresa el año de finalizacion de etapa laboral</label>
+            <label for="fechafin" class="form-label">Ingresa el año de Finalización del trabajo</label>
             <input type="number" class="form-control" id="fechafin" required formControlName="fechafin" name="fechafin" />
             <div *ngIf="experienciaForm.get('fechafin')?.touched && experienciaForm.get('fechafin')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
+            <div *ngIf="experienciaForm.get('fechafin')?.touched && experienciaForm.get('fechafin')?.errors?.['pattern']" class="alert alert-danger">Número incorrecto</div>
           </div>
     
           
@@ -62,76 +64,3 @@
     </div>
   </div>
 </body>
-<!--
-
-<div *ngIf="currentExperiencia.id" class="edit-form">
-    <h4>Experiencia</h4>
-    <form>
-      <div class="form-group">
-        <label for="empresa">Empresa</label>
-        <input
-          type="text"
-          class="form-control"
-          id="empresa"
-          [(ngModel)]="currentExperiencia.empresa"
-          name="empresa"
-        />
-      </div>
-      <div class="form-group">
-        <label for="cargo">Cargo</label>
-        <input
-          type="text"
-          class="form-control"
-          id="cargo"
-          [(ngModel)]="currentExperiencia.cargo"
-          name="cargo"
-        />
-      </div>
-
-      <div class="form-group">
-          <label for="fecha">Fecha</label>
-          <input
-            type="text"
-            class="form-control"
-            id="fecha"
-            [(ngModel)]="currentExperiencia.fecha"
-            name="fecha"
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="fechafin">Fecha de finalizacion</label>
-          <input
-            type="text"
-            class="form-control"
-            id="fechafin"
-            [(ngModel)]="currentExperiencia.fechafin"
-            name="fechafin"
-          />
-        </div>
-        <div class="form-group">
-            <label for="descripcion">Descripción</label>
-            <input
-              type="text"
-              class="form-control"
-              id="descripcion"
-              [(ngModel)]="currentExperiencia.descripcion"
-              name="descripcion"
-            />
-          </div>
-          <div>
-            <p>{{currentExperiencia.personaid}}</p>
-          </div>
-        <button
-      type="submit"
-      class="btn btn-warning  mb-2"
-      (click)="updateExperiencia()"
-    >
-      Update
-    </button>
-    </form>
-
-    
-
-  </div>
--->

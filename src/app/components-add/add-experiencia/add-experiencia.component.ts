@@ -47,7 +47,7 @@ newExperiencia(): void {
 initForm(): FormGroup {
   return this.fb.group({
     
-    empresa: ['', [Validators.required, Validators.minLength(5)]],
+    empresa: ['', [Validators.required, Validators.minLength(4)]],
     cargo: ['', [Validators.required, Validators.minLength(3)]],
     descripcion: ['', [Validators.required, Validators.minLength(10)]],
     fecha: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],

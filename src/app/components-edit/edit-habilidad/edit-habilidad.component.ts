@@ -33,7 +33,6 @@ export class EditHabilidadComponent implements OnInit{
     
   }
 
-  //Obtener datos de persona
   getHabilidad(id: number): void {
     this.habilidadService.getHabilidad(id)
       .subscribe({
@@ -52,7 +51,7 @@ export class EditHabilidadComponent implements OnInit{
           }, error: (e) => console.error(e)});
   }
 
-  //Editar Persona
+  
    updateHabilidad(): void {
     if (this.currentHabilidad.id != null) {
       const habilidad= this.habilidadForm.value;
@@ -60,12 +59,12 @@ export class EditHabilidadComponent implements OnInit{
       this.habilidadService.updateHabilidad(this.currentHabilidad.personaid,this.currentHabilidad.id, habilidad)
         .subscribe(
           () => {
-            console.log('exito');
+            console.log('exito al editar habilidad');
             console.log(this.currentHabilidad);
             
             this.router.navigate(['/portfolio/' + this.currentHabilidad.personaid]);
           }, () => {
-            alert("Error al cargar datos " );
+            alert("Error al cargar habilidad " );
           }
         );
     } else{
@@ -86,45 +85,5 @@ export class EditHabilidadComponent implements OnInit{
       
     })
     }
-  /* @Input() currentHabilidad: Habilidad = {
-    id:0,
-    habilidad: '',
-    porcentaje: 0,
-    semana:0,
-    mensual:0,
-    personaid:0
-  };
-  constructor(
-    private habilidadService: HabilidadService,
-    private route: ActivatedRoute,
-    private router: Router) { }
-
-  ngOnInit(): void {
-    this.getHabilidad(this.route.snapshot.params['id']);
-  }
-
-  getHabilidad(id: number): void {
-    this.habilidadService.getHabilidad(id)
-      .subscribe({
-        next: (data) => {
-          this.currentHabilidad = data;
-          console.log(data);
-        },
-        error: (e) => console.error(e)
-      });
-  }
-  updateHabilidad(): void {
-    if (this.currentHabilidad.id != null) {
-      this.habilidadService.updateHabilidad(this.currentHabilidad.personaid,this.currentHabilidad.id, this.currentHabilidad)
-        .subscribe(
-          () => {
-            console.log('exito');
-            this.router.navigate(['/portfolio/'+this.currentHabilidad.personaid]);
-
-          }, () => {
-            alert("Error al cargar datos");
-          }
-        );
-    }
-  }*/
+  
 }

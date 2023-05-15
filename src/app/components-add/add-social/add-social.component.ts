@@ -36,7 +36,7 @@ export class AddSocialComponent implements OnInit{
     this.socialService.createContacto(socials)
       .subscribe(
         () => {
-          console.log('exito al crear nueva red social');
+          alert('exito al crear nueva red social');
           this.submitted = true;
         }, () => {
           alert('error al crear red social');
@@ -63,39 +63,5 @@ export class AddSocialComponent implements OnInit{
       
     })
   }
-  /*
-  socials = {
-    social: '',
-    user: '',
-    personaid: 0
-  };
-
-  constructor(private contactoService: ContactoService, private router: Router, private route: ActivatedRoute) { }
-  submitted = false;
-  ngOnInit(): void {
-
-  }
-  saveContacto(): void {
-    const data = {
-      social: this.socials.social,
-      user: this.socials.user,
-      personaid: this.route.snapshot.params['personaid']
-    };
-    this.contactoService.createContacto(data)
-      .subscribe(
-        response => {
-          console.log(response);
-          this.submitted = true;
-        }, error => {
-          console.log(error);
-        });
-  }
-  newContacto(): void {
-    this.submitted = false;
-    this.socials = {
-      social: '',
-      user: '',
-      personaid: 0
-    };
-  }*/
+  
 }

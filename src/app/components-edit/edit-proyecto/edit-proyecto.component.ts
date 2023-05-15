@@ -37,7 +37,6 @@ export class EditProyectoComponent implements OnInit{
     this.name = "proyecto_" + this.numero;
   }
 
-  //Obtener datos de persona
   getProyecto(id: number): void {
     this.proyectoService.getProyecto(id)
       .subscribe({
@@ -58,7 +57,7 @@ export class EditProyectoComponent implements OnInit{
           }, error: (e) => console.error(e)});
   }
 
-  //Editar Persona
+  
   async updateProyecto(): Promise<void> {
     if (this.currentProyecto.id != null) {
       const proyecto= this.proyectoForm.value;
@@ -67,12 +66,12 @@ export class EditProyectoComponent implements OnInit{
       this.proyectoService.updateProyecto(this.currentProyecto.personaid, this.currentProyecto.id, proyecto)
         .subscribe(
           () => {
-            alert('exito, ahora si: ' );
+            alert('exito al editar proyecto' );
             console.log(this.currentProyecto);
             
             this.router.navigate(['/portfolio/' + this.currentProyecto.personaid]);
           }, () => {
-            alert("Error al cargar datos " );
+            alert("Error al cargar proyecto " );
           }
         );
     } else{
@@ -94,68 +93,10 @@ export class EditProyectoComponent implements OnInit{
       desarrollo:['', [Validators.required, Validators.minLength(3)]],
       lanzamiento: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
       img:[],
-      link:['', [Validators.required, Validators.minLength(10)]],
+      link:['', [Validators.required, Validators.minLength(5)]],
     })
     }
 
     
- /* numero!: number;
-  name!:string;
-  carpeta!: string;
-  @Input() currentProyecto: Proyecto = {
-    id:0,
-    nombreProyecto: '',
-    descripcion: '',
-    desarrollo: '',
-    lanzamiento: 0,
-    img: '',
-    link:'',
-    personaid:0
-  };
-  constructor(
-    private proyectoService: ProyectoService,
-    private route: ActivatedRoute,
-    private router: Router,
-    public imguploadService: ImgUploadService) { }
-
-  ngOnInit(): void {
-    this.numero = +this.route.snapshot.params['id'];//conversor a number
-    this.carpeta = "uploads/Foto_proyeco_" +this.numero;
-   
-    this.name = "proyecto_" + this.numero;
-    this.getProyecto(this.numero );
-   
-    
-    
-  }
-
-  getProyecto(id: number): void {
-    this.proyectoService.getProyecto(id)
-      .subscribe({
-        next: (data) => {
-          this.currentProyecto = data;
-          console.log(data);
-        },
-        error: (e) => console.error(e)
-      });
-  }
-  async updateProyecto(): Promise<void> {
-    if (this.currentProyecto.id != null) {
-      this.currentProyecto.img = await this.imguploadService.getImageUrl(this.name, this.carpeta);
-      this.proyectoService.updateProyecto(this.currentProyecto.personaid,this.currentProyecto.id, this.currentProyecto)
-        .subscribe(
-          () => {
-            console.log('exito');
-            this.router.navigate(['/portfolio/'+this.currentProyecto.personaid]);
-
-          }, () => {
-            alert("Error al cargar datos");
-          }
-        );
-    }
-  }
-  uploadImage($event: any, nombrefoto: string, carpetafoto: string) {
-    
-    this.imguploadService.uploadImage($event, nombrefoto, carpetafoto);
-  }*/
+ 
 }

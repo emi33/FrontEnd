@@ -33,7 +33,6 @@ export class EditExperienciaComponent implements OnInit{
     
   }
 
-  //Obtener datos de persona
   getExperiencia(id: number): void {
     this.experienciaService.getExperiencia(id)
       .subscribe({
@@ -53,7 +52,7 @@ export class EditExperienciaComponent implements OnInit{
           }, error: (e) => console.error(e)});
   }
 
-  //Editar Persona
+  
    updateExperiencia(): void {
     if (this.currentExperiencia.id != null) {
       const experiencia= this.experienciaForm.value;
@@ -61,16 +60,16 @@ export class EditExperienciaComponent implements OnInit{
       this.experienciaService.updateExperiencia(this.currentExperiencia.personaid,this.currentExperiencia.id, experiencia)
         .subscribe(
           () => {
-            console.log('exito');
+            alert('exito al editar experiencia');
             console.log(this.currentExperiencia);
             
             this.router.navigate(['/portfolio/' + this.currentExperiencia.personaid]);
           }, () => {
-            alert("Error al cargar datos " );
+            alert("Error al cargar experiencia " );
           }
         );
     } else{
-      console.log('error');
+      alert('error');
       
     }
   }
@@ -80,54 +79,13 @@ export class EditExperienciaComponent implements OnInit{
   initForm(): FormGroup{
     return this.fb.group({
       
-      empresa:['', [Validators.required, Validators.minLength(3)]],
+      empresa:['', [Validators.required, Validators.minLength(4)]],
       cargo:['', [Validators.required, Validators.minLength(3)]],
       descripcion:['', [Validators.required, Validators.minLength(10)]],
-      fecha:['', Validators.required],
-      fechafin:['', Validators.required]
+      fecha: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
+      fechafin: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
       
     })
     }
-  /*@Input() currentExperiencia: Experiencia = {
-    id:0,
-    cargo: '',
-    descripcion: '',
-    empresa:'',
-    fecha:0,
-    fechafin:0,
-    personaid: 0
-  };
-  constructor(
-    private experienciaService: ExperienciaService,
-    private route: ActivatedRoute,
-    private router: Router) { }
-
-  ngOnInit(): void {
-    this.getExperiencia(this.route.snapshot.params['id']);
-  }
-
-  getExperiencia(id: number): void {
-    this.experienciaService.getExperiencia(id)
-      .subscribe({
-        next: (data) => {
-          this.currentExperiencia = data;
-          console.log(data);
-        },
-        error: (e) => console.error(e)
-      });
-  }
-  updateExperiencia(): void {
-    if (this.currentExperiencia.id != null) {
-      this.experienciaService.updateExperiencia(this.currentExperiencia.personaid,this.currentExperiencia.id, this.currentExperiencia)
-        .subscribe(
-          () => {
-            console.log('exito');
-            this.router.navigate(['/portfolio/'+this.currentExperiencia.personaid]);
-
-          }, err => {
-            alert("Error al cargar datos");
-          }
-        );
-    }
-  }*/
+  
 }

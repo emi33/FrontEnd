@@ -55,7 +55,7 @@ export class AddEducacionComponent implements OnInit {
   }
   initForm(): FormGroup {
     return this.fb.group({
-      institucion: ['', [Validators.required, Validators.minLength(5)]],
+      institucion: ['', [Validators.required, Validators.minLength(4)]],
       titulo: ['', [Validators.required, Validators.minLength(3)]],
       fechainicio: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
       fechafin: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],

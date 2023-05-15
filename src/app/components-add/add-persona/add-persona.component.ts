@@ -30,7 +30,7 @@ export class AddPersonaComponent implements OnInit {
 
   ngOnInit(): void {
     this.numero=this.route.snapshot.params['id'];
-    if (this.numero!= null || this.numero!=undefined){
+    if (this.numero== null){
       this.numero=1;
     }
 

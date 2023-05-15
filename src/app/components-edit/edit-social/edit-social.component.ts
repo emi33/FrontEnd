@@ -29,7 +29,6 @@ export class EditSocialComponent implements OnInit{
     this.getContacto(this.numero);
   }
 
-  //Obtener datos de persona
   getContacto(id: number): void {
     this.contactoService.getContacto(id)
       .subscribe({
@@ -52,7 +51,7 @@ export class EditSocialComponent implements OnInit{
       this.contactoService.updateContacto(this.currentContacto.personaid, this.currentContacto.id, social)
         .subscribe(
           () => {
-            console.log('exito: ' );
+            alert('exito: ' );
             console.log(this.currentContacto);
             
             this.router.navigate(['/portfolio/' + this.currentContacto.personaid]);
@@ -74,44 +73,5 @@ export class EditSocialComponent implements OnInit{
       })
     }
 
-  /*
-  @Input() currentContacto: Contacto = {
-    id:0,
-    social: '',
-    user: '',
-    personaid:0
-  };
-  constructor(
-    private contactoService: ContactoService,
-    private route: ActivatedRoute,
-    private router: Router) { }
-
-  ngOnInit(): void {
-    this.getContacto(this.route.snapshot.params['id']);
-  }
-
-  getContacto(id: number): void {
-    this.contactoService.getContacto(id)
-      .subscribe({
-        next: (data) => {
-          this.currentContacto = data;
-          console.log(data);
-        },
-        error: (e) => console.error(e)
-      });
-  }
-  updateContacto(): void {
-    if (this.currentContacto.id != null) {
-      this.contactoService.updateContacto(this.currentContacto.personaid,this.currentContacto.id, this.currentContacto)
-        .subscribe(
-          () => {
-            console.log('exito');
-            this.router.navigate(['/portfolio/'+this.currentContacto.personaid]);
-
-          }, () => {
-            alert("Error al cargar datos");
-          }
-        );
-    }
-  }*/
+  
 }

@@ -79,10 +79,10 @@ export class EditPersonaComponent implements OnInit {
           () => {
 
             console.log( this.persona);
-            alert('exito')
+            alert('exito al editar perfil')
             this.router.navigate(['/portfolio/' + this.numero]);
           }, () => {
-            alert("Error al cargar datos " );
+            alert("Error al cargar perfil " );
           }
         );
     } else{

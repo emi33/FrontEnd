@@ -28,8 +28,7 @@ export class AcercaDeComponent implements OnInit{
   constructor(
     private personaService: PersonaService,
     public authService: AuthService,
-    private route: ActivatedRoute,
-    private router: Router) { }
+   ) { }
 
   ngOnInit(): void {
    

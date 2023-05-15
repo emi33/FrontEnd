@@ -8,7 +8,7 @@
           
             <div *ngIf="!submitted" class="mb-4">
                          
-              <h2 class="text-center mb-4">Crea una Educacion Nueva</h2>
+              <h2 class="text-center mb-4">Crea una Educación Nueva</h2>
               <div class="mb-4">
                 <label for="institucion" class="form-label">Escribe el nombre de la institucion</label>
                 <input type="text" class="form-control" id="institucion" name="institucion" required formControlName="institucion"/>
@@ -17,7 +17,7 @@
               </div>
         
               <div class="mb-4">
-                <label for="titulo" class="form-label">Escribe el titulo obtenido</label>
+                <label for="titulo" class="form-label">Escribe el título obtenido</label>
                 <input class="form-control" id="titulo" required formControlName="titulo" name="titulo" />
                 <div *ngIf="educacionForm.get('titulo')?.touched && educacionForm.get('titulo')?.errors?.['required']" class="alert alert-danger">Este campo es requerido</div>
                 <div *ngIf="educacionForm.get('titulo')?.touched && educacionForm.get('titulo')?.errors?.['minlength']" class="alert alert-danger">Este campo debe tener mas de {{educacionForm.get('titulo')?.errors?.['minlength'].requiredLength}} caracteres</div>
@@ -39,13 +39,13 @@
 
               <button type="submit" class="btn btn-success  mb-2" [disabled]="educacionForm.invalid"
               (click)="saveEducacion()">
-                Submit
+                Crear
               </button>
             </div>
         
             <div *ngIf="submitted" class="mb-4">
               <h4>Creaste una Educacion de forma exitosa</h4>
-              <button class="btn btn-success" (click)="newEducacion()">Crear otro Perfil</button>
+              <button class="btn btn-success" (click)="newEducacion()">Crear otra Educación</button>
               
             </div>
             <br>

@@ -33,7 +33,7 @@ export class EditEducacionComponent {
     
   }
 
-  //Obtener datos de persona
+ 
   getEducacion(id: number): void {
     this.educacionService.getEducacion(id)
       .subscribe({
@@ -52,7 +52,7 @@ export class EditEducacionComponent {
           }, error: (e) => console.error(e)});
   }
 
-  //Editar Persona
+  
    updateEducacion(): void {
     if (this.currentEducacion.id != null) {
       const educacion= this.educacionForm.value;
@@ -60,12 +60,12 @@ export class EditEducacionComponent {
       this.educacionService.updateEducacion(this.currentEducacion.personaid,this.currentEducacion.id, educacion)
         .subscribe(
           () => {
-            console.log('exito');
+            alert('exito al editar educacion');
             console.log(this.currentEducacion);
             
             this.router.navigate(['/portfolio/' + this.currentEducacion.personaid]);
           }, () => {
-            alert("Error al cargar datos " );
+            alert("Error al cargar educacion " );
           }
         );
     } else{
@@ -79,7 +79,7 @@ export class EditEducacionComponent {
   initForm(): FormGroup{
     return this.fb.group({
       
-      institucion:['', [Validators.required, Validators.minLength(3)]],
+      institucion:['', [Validators.required, Validators.minLength(4)]],
       titulo:['', [Validators.required, Validators.minLength(3)]],
       fechainicio:['', Validators.required],
       fechafin:['', Validators.required]
@@ -87,45 +87,5 @@ export class EditEducacionComponent {
     })
     }
 
- /* @Input() currentEducacion: Educacion = {
-    id:0,
-    institucion: '',
-    titulo: '',
-    fechainicio:0,
-    fechafin:0,
-    personaid: 0
-  };
-  constructor(
-    private educacionService: EducacionService,
-    private route: ActivatedRoute,
-    private router: Router) { }
-
-  ngOnInit(): void {
-    this.getEducacion(this.route.snapshot.params['id']);
-  }
-
-  getEducacion(id: number): void {
-    this.educacionService.getEducacion(id)
-      .subscribe({
-        next: (data) => {
-          this.currentEducacion = data;
-          console.log(data);
-        },
-        error: (e) => console.error(e)
-      });
-  }
-  updateEducacion(): void {
-    if (this.currentEducacion.id != null) {
-      this.educacionService.updateEducacion(this.currentEducacion.personaid,this.currentEducacion.id, this.currentEducacion)
-        .subscribe(
-          () => {
-            console.log('exito');
-            this.router.navigate(['/portfolio/'+this.currentEducacion.personaid]);
-
-          }, err => {
-            alert("Error al cargar datos"+err);
-          }
-        );
-    }
-  }*/
+ 
 }
