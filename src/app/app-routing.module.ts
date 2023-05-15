@@ -31,6 +31,9 @@ const routes: Routes = [
   {path:'olvidar-password', component: OlvidarPasswordComponent},
   {path: 'verificarcorreo', component: VerificarcorreoComponent},
   {path: 'personas', component: PersonasComponent, canActivate: [AuthGuard]},
+  {path: 'add?persona/:id', component: AddPersonaComponent, canActivate: [AuthGuard]},
+  {path: 'add?persona', component: AddPersonaComponent, canActivate: [AuthGuard]},
+
   {path: 'persona/:id', component: EditPersonaComponent, canActivate: [AuthGuard]},
   {path: 'add?persona/:id', component: AddPersonaComponent, canActivate: [AuthGuard]},
   {path: 'experiencia/:id', component: EditExperienciaComponent, canActivate: [AuthGuard]},

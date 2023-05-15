@@ -10,7 +10,7 @@ import { PersonaService } from 'src/app/services/persona.service';
   styleUrls: ['./add-persona.component.css']
 })
 export class AddPersonaComponent implements OnInit {
-  numero:number=this.route.snapshot.params['id'];
+  numero!:number
   personaForm!: FormGroup;
 
   persona = {
@@ -29,6 +29,11 @@ export class AddPersonaComponent implements OnInit {
   submitted = false;
 
   ngOnInit(): void {
+    this.numero=this.route.snapshot.params['id'];
+    if (this.numero!= null || this.numero!=undefined){
+      this.numero=1;
+    }
+
     this.personaForm = this.initForm();
   }
 
